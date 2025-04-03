@@ -22,7 +22,7 @@
 
 <!-- Slider/Intro Section Start -->
 <div class="intro-slider-wrap section">
-    <div class="intro-section section" data-bg-image="assetsUserSite/images/intro/intro1.jpg">
+    <div class="intro-section section" data-bg-image="assets/images/intro/intro1.jpg">
 
         <div class="container-fluid">
             <div class="row row-cols-lg-1 row-cols-1">
@@ -53,7 +53,7 @@
             <div class="col" data-aos="fade-right">
                 <div class="gym-cate">
                     <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-1.jpg"
+                        <a class="image" href="#"><img src="assets/images/gym-cate/cate-1.jpg"
                                 alt="Categories"></a>
                     </div>
                     <div class="cate-content">
@@ -70,7 +70,7 @@
             <div class="col" data-aos="fade-up">
                 <div class="gym-cate">
                     <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-2.jpg"
+                        <a class="image" href="#"><img src="assets/images/gym-cate/cate-2.jpg"
                                 alt="Categories"></a>
                     </div>
                     <div class="cate-content">
@@ -87,7 +87,7 @@
             <div class="col" data-aos="fade-down">
                 <div class="gym-cate">
                     <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-3.jpg"
+                        <a class="image" href="#"><img src="assets/images/gym-cate/cate-3.jpg"
                                 alt="Categories"></a>
                     </div>
                     <div class="cate-content">
@@ -104,7 +104,7 @@
             <div class="col" data-aos="fade-left">
                 <div class="gym-cate">
                     <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-4.jpg"
+                        <a class="image" href="#"><img src="assets/images/gym-cate/cate-4.jpg"
                                 alt="Categories"></a>
                     </div>
                     <div class="cate-content">
@@ -132,7 +132,7 @@
             <div class="col-lg-7" data-aos="fade-up">
                 <!-- About Image Start -->
                 <div class="about-image">
-                    <img src="assetsUserSite/images/about/about-2.png" alt="">
+                    <img src="assets/images/about/about-2.png" alt="">
                 </div>
                 <!-- About Image End -->
             </div>
@@ -168,7 +168,7 @@
                 <!-- Single Coach Start -->
                 <div class="single-coach">
                     <div class="thumbnial">
-                        <a class="image" href="#"><img src="assetsUserSite/images/team/team-1.jpg" alt=""></a>
+                        <a class="image" href="#"><img src="assets/images/team/team-1.jpg" alt=""></a>
                         <div class="inner-block">
                             <div class="slider-top-right"></div>
                         </div>
@@ -185,7 +185,7 @@
                 <!-- Single Coach Start -->
                 <div class="single-coach">
                     <div class="thumbnial">
-                        <a class="image" href="#"><img src="assetsUserSite/images/team/team-2.jpg" alt=""></a>
+                        <a class="image" href="#"><img src="assets/images/team/team-2.jpg" alt=""></a>
                         <div class="inner-block">
                             <div class="slider-top-right"></div>
                         </div>
@@ -202,7 +202,7 @@
                 <!-- Single Coach Start -->
                 <div class="single-coach">
                     <div class="thumbnial">
-                        <a class="image" href="#"><img src="assetsUserSite/images/team/team-3.jpg" alt=""></a>
+                        <a class="image" href="#"><img src="assets/images/team/team-3.jpg" alt=""></a>
                         <div class="inner-block">
                             <div class="slider-top-right"></div>
                         </div>
@@ -299,7 +299,7 @@
 <!-- Event Section End -->
 
 <!-- Video Section Start -->
-<div class="section section-padding-t185-b150 section-fluid" data-bg-image="assetsUserSite/images/bg/video-bg.jpg">
+<div class="section section-padding-t185-b150 section-fluid" data-bg-image="assets/images/bg/video-bg.jpg">
     <div class="container">
         <div class="video-stroke-text">
             <h2 class="heading-title">GO HARD <br> OR GO HOME</h2>
@@ -368,7 +368,7 @@
                 <!-- Single Banner Start -->
                 <div class="single-banner">
                     <div class="thumbnail">
-                        <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-1.jpg" alt=""></a>
+                        <a class="image" href="#"><img src="assets/images/banner/banner-1.jpg" alt=""></a>
                         <div class="inner-block">
                             <div class="slider-top-right"></div>
                         </div>
@@ -385,7 +385,7 @@
                 <!-- Single Banner Start -->
                 <div class="single-banner">
                     <div class="thumbnail">
-                        <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-2.jpg" alt=""></a>
+                        <a class="image" href="#"><img src="assets/images/banner/banner-2.jpg" alt=""></a>
                         <div class="inner-block">
                             <div class="slider-top-right"></div>
                         </div>
@@ -422,7 +422,7 @@
                         <div class="swiper-slide">
                             <div class="testimonial">
                                 <div class="qute-icon">
-                                    <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
+                                    <img src="assets/images/icon/qute.svg" alt="qute">
                                 </div>
                                 <div class="testimonial-rating">
                                     <i class="fa fa-star"></i>
@@ -438,7 +438,7 @@
                                 </div>
                                 <div class="author-info">
                                     <div class="image">
-                                        <img src="assetsUserSite/images/testimonial/testimonial-1.png" alt="">
+                                        <img src="assets/images/testimonial/testimonial-1.png" alt="">
                                     </div>
                                     <div class="cite">
                                         <p class="name">Bobby Hughes</p>
@@ -450,7 +450,7 @@
                         <div class="swiper-slide">
                             <div class="testimonial">
                                 <div class="qute-icon">
-                                    <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
+                                    <img src="assets/images/icon/qute.svg" alt="qute">
                                 </div>
                                 <div class="testimonial-rating">
                                     <i class="fa fa-star"></i>
@@ -466,7 +466,7 @@
                                 </div>
                                 <div class="author-info">
                                     <div class="image">
-                                        <img src="assetsUserSite/images/testimonial/testimonial-1.png" alt="">
+                                        <img src="assets/images/testimonial/testimonial-1.png" alt="">
                                     </div>
                                     <div class="cite">
                                         <p class="name">Bobby Hughes</p>
@@ -478,7 +478,7 @@
                         <div class="swiper-slide">
                             <div class="testimonial">
                                 <div class="qute-icon">
-                                    <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
+                                    <img src="assets/images/icon/qute.svg" alt="qute">
                                 </div>
                                 <div class="testimonial-rating">
                                     <i class="fa fa-star"></i>
@@ -494,7 +494,7 @@
                                 </div>
                                 <div class="author-info">
                                     <div class="image">
-                                        <img src="assetsUserSite/images/testimonial/testimonial-1.png" alt="">
+                                        <img src="assets/images/testimonial/testimonial-1.png" alt="">
                                     </div>
                                     <div class="cite">
                                         <p class="name">Bobby Hughes</p>
@@ -527,7 +527,7 @@
                 <!-- Single Blog Grid Start -->
                 <div class="blog">
                     <div class="thumbnail">
-                        <a href="blog-details.html" class="image"><img src="assetsUserSite/images/blog/grid/blog-1.jpg"
+                        <a href="blog-details.html" class="image"><img src="assets/images/blog/grid/blog-1.jpg"
                                 alt="Blog Image"></a>
                         <span class="badge"><i class="fal fa-quote-left"></i></span>
                     </div>
@@ -551,7 +551,7 @@
                 <!-- Single Blog Grid Start -->
                 <div class="blog">
                     <div class="thumbnail">
-                        <a href="blog-details.html" class="image"><img src="assetsUserSite/images/blog/grid/blog-2.jpg"
+                        <a href="blog-details.html" class="image"><img src="assets/images/blog/grid/blog-2.jpg"
                                 alt="Blog Image"></a>
                         <span class="badge"><i class="fal fa-quote-left"></i></span>
                     </div>

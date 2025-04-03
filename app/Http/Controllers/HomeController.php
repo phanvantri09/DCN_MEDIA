@@ -10,6 +10,6 @@ class HomeController extends Controller
 {
     public function home() : View
     {
-        return view('UserSite.home');
+        return view('home');
     }
 }
