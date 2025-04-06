@@ -11,9 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         $table->id();
-        $table->string('title')->unique();
-        $table->string('sub_title')->nullable();
-        $table->text('html_text')->nullable();
+        $table->string('name')->unique();
+        $table->string('img')->nullable();
+        $table->text('content_pre')->nullable();
+        $table->longText('content')->nullable();
         $table->timestamps();
     }
 
