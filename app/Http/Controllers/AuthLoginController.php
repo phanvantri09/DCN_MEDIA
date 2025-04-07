@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
-class AuthController extends Controller
+class AuthLoginController extends Controller
 {
-    //
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -18,7 +19,7 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
-    public function login()
+    public function login() :View
     {
         if (Auth::check()) {
             return redirect()->route('index')->with('info','Bạn đã đăng nhập rồi');

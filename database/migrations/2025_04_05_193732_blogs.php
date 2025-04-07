@@ -10,12 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        $table->id();
-        $table->string('name')->unique();
-        $table->string('img')->nullable();
-        $table->text('content_pre')->nullable();
-        $table->longText('content')->nullable();
-        $table->timestamps();
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('img')->nullable();
+            $table->text('content_pre')->nullable();
+            $table->longText('content')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

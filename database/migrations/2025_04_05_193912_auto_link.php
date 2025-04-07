@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $table->id();
-        $table->string('link');
-        $table->timestamps();
+        Schema::create('autolink', function (Blueprint $table) {
+            $table->id();
+            $table->string('link');
+            $table->timestamps();
+        });
     }
 
     /**

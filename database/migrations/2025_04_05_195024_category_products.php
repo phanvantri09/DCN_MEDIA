@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $table->id();
-        $table->string('title')->unique();
-        $table->string('sub_title')->nullable();
-        $table->timestamps();
+        Schema::create('category_products', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->unique();
+            $table->string('sub_title')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

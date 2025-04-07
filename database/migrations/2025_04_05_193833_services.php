@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $table->id();
-        $table->integer('type')->nullable(false)->default(1); // 1 thu âm, 2 quay chụp
-        $table->string('name')->unique();
-        $table->float('price')->nullable(false)->default(0);
-        $table->text('description')->nullable();
-        $table->timestamps();
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->integer('type')->nullable(false)->default(1); // 1 thu âm, 2 quay chụp
+            $table->string('name')->unique();
+            $table->float('price')->nullable(false)->default(0);
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

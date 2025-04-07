@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $table->id();
-        $table->integer('id_product');
-        $table->string('image');
-        $table->timestamps();
+        Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->integer('id_product');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
