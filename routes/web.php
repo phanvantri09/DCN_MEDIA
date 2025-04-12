@@ -22,12 +22,12 @@ Route::group(['prefix' => '/'], function () {
         // danh sách
         Route::get('/','home')->name('index');
 
-        Route::get('/contact','contact')->name('contact');
-        Route::post('/contactPost','contactPost')->name('contactPost');
+        Route::get('/shop','shop')->name('shop');
 
         Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
         Route::get('/blogs','blogs')->name('blogs');
-        Route::get('/tracks','tracks')->name('tracks');
+        Route::get('/services','services')->name('services');
+        // Route::get('/tracks','tracks')->name('tracks');
     });
 });
 

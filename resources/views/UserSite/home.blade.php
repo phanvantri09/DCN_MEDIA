@@ -565,9 +565,9 @@
             </div>
 
         </div>
-        <div class="view-blog-btn text-center mt-lg-12 mt-md-8 mt-6" data-aos="fade-up">
+        {{-- <div class="view-blog-btn text-center mt-lg-12 mt-md-8 mt-6" data-aos="fade-up">
             <a href="blog-grid.html">View all blog</a>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- Blog Section End -->
@@ -578,14 +578,14 @@
         <div class="row align-items-center">
             <div class="col-lg-4 col-md-4 col-12">
                 <div class="newsletter-title mb-md-0 mb-6" data-aos="fade-up">
-                    <h3 class="title">STAY WITH US</h3>g
+                    <h3 class="title">Liên hệ ngay</h3>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-12">
                 <div class="newsletter-form-area" data-aos="fade-up" data-aos-delay="300">
                     <form action="#">
-                        <input type="email" name="email" placeholder="EMAIL ADDRESS...">
-                        <button class="form-submit">Subscribe</button>
+                        <input type="email" name="email" placeholder="dcnmedia43@gmail.com">
+                        <button class="form-submit">Gửi mail</button>
                     </form>
                 </div>
             </div>

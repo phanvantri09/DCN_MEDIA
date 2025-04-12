@@ -2,7 +2,7 @@
     <div class="site-main-mobile-menu-inner">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <a href="index.html"><img src="assets/images/logo/logo.png" alt=""></a>
+                <a href="#"><img src="assets/images/logo/logo.png" alt=""></a>
             </div>
             <div class="mobile-menu-close">
                 <button class="toggle">
@@ -15,9 +15,9 @@
             <nav class="site-mobile-menu">
                 <ul>
                     <li>
-                        <a href="index.html"><span class="menu-text">Home</span></a>
+                        <a href="#"><span class="menu-text">Trang Chủ</span></a>
                     </li>
-                    <li class="has-children">
+                    {{-- <li class="has-children">
                         <a href="about.html"><span class="menu-text">Pages</span></a>
                         <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                         <ul class="sub-menu">
@@ -25,11 +25,11 @@
                             <li><a href="team.html"><span class="menu-text">Our Team</span></a></li>
                             <li><a href="contact.html"><span class="menu-text">Contact</span></a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="our-program.html"><span class="menu-text">Our Program</span></a>
+                        <a href="{{ route('shop') }}"><span class="menu-text">Cửa Hàng</span></a>
                     </li>
-                    <li class="has-children">
+                    {{-- <li class="has-children">
                         <a href="shop.html"><span class="menu-text">Shop</span></a>
                         <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                         <ul class="sub-menu">
@@ -40,17 +40,17 @@
                             <li><a href="wishlist.html"><span class="menu-text">Wishlist</span></a></li>
                             <li><a href="checkout.html"><span class="menu-text">Checkout</span></a></li>
                         </ul>
-                    </li>
-                    <li class="has-children">
+                    </li> --}}
+                    {{-- <li class="has-children">
                         <a href="blog-grid.html"><span class="menu-text">Blog</span></a>
                         <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                         <ul class="sub-menu">
                             <li><a href="blog-grid.html"><span class="menu-text">Blog Grid</span></a></li>
                             <li><a href="blog-details.html"><span class="menu-text">Blog Details</span></a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="event.html"><span class="menu-text">Event</span></a>
+                        <a href="{{ route('blogs') }}"><span class="menu-text">Bài Viết</span></a>
                     </li>
                 </ul>
             </nav>

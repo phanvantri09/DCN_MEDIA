@@ -7,9 +7,9 @@
                 <!-- Header Logo Start -->
                 <div class="col-xl-2 col-auto">
                     <div class="header-logo">
-                        <a href="index.html">
-                            <img class="dark-logo" src="assets/images/logo/logo.png" alt="Fitness Logo">
-                            <img class="light-logo" src="assets/images/logo/logo.png" alt="Fitness Logo">
+                        <a href="#">
+                            <img class="dark-logo" src="assetsUserSite/images/logo/logo.png" alt="Fitness Logo">
+                            <img class="light-logo" src="assetsUserSite/images/logo/logo.png" alt="Fitness Logo">
                         </a>
                     </div>
                 </div>
@@ -21,9 +21,9 @@
                         <nav class="site-main-menu">
                             <ul>
                                 <li>
-                                    <a href="index.html"><span class="menu-text">Home</span></a>
+                                    <a href="#"><span class="menu-text">Trang chủ</span></a>
                                 </li>
-                                <li class="has-children">
+                                {{-- <li class="has-children">
                                     <a href="about.html"><span class="menu-text">Pages</span></a>
                                     <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                                     <ul class="sub-menu">
@@ -32,13 +32,16 @@
                                         <li><a href="contact.html"><span class="menu-text">Contact</span></a>
                                         </li>
                                     </ul>
+                                </li> --}}
+                                <li>
+                                    {{-- <a href="our-program.html"><span class="menu-text">Our Program</span></a> --}}
                                 </li>
                                 <li>
-                                    <a href="our-program.html"><span class="menu-text">Our Program</span></a>
+                                    <a href="{{ route('shop') }}"><span class="menu-text">Cửa Hàng</span></a>
                                 </li>
-                                <li class="has-children">
-                                    <a href="shop.html"><span class="menu-text">Shop</span></a>
-                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                               {{-- <li class="has-children">
+                                    <a><span class="menu-text">Cửa Hàng</span></a>
+                                     <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                                     <ul class="sub-menu">
                                         <li><a href="shop.html"><span class="menu-text">Shop</span></a></li>
                                         <li><a href="product-details.html"><span class="menu-text">Product
@@ -49,21 +52,21 @@
                                         </li>
                                         <li><a href="checkout.html"><span class="menu-text">Checkout</span></a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                                 <li class="has-children">
-                                    <a href="blog-grid.html"><span class="menu-text">Blog</span></a>
-                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                    <a href="{{ route('blogs') }}"><span class="menu-text">Bài viết</span></a>
+                                    {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                                     <ul class="sub-menu">
                                         <li><a href="blog-grid.html"><span class="menu-text">Blog
                                                     Grid</span></a></li>
                                         <li><a href="blog-details.html"><span class="menu-text">Blog
                                                     Details</span></a></li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="event.html"><span class="menu-text">Event</span></a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </nav>
                     </div>
@@ -85,10 +88,10 @@
                     <!-- Header Search End -->
 
                     <!-- Header Cart Start -->
-                    <div class="header-cart">
+                    {{-- <div class="header-cart">
 
-                        {{-- <a class="header-cart-btn" href="shopping-cart.html"><span class="cart-count">2</span><i
-                                class="far fa-shopping-cart"></i></a> --}}
+                        <a class="header-cart-btn" href="shopping-cart.html"><span class="cart-count">2</span><i
+                                class="far fa-shopping-cart"></i></a>
 
                         <!-- Header Mini Cart Start -->
                         <div class="header-mini-cart">
@@ -98,7 +101,7 @@
                                 <div class="mini-cart-products">
                                     <div class="mini-cart-product">
                                         <a href="#" class="thumb"><img
-                                                src="assets/images/shop/shopping-cart/product-1.jpg" alt=""></a>
+                                                src="assetsUserSite/images/shop/shopping-cart/product-1.jpg" alt=""></a>
                                         <div class="content">
                                             <a href="#" class="title">Online Student: Strategies for Effective
                                                 Learning</a>
@@ -108,7 +111,7 @@
                                     </div>
                                     <div class="mini-cart-product">
                                         <a href="#" class="thumb"><img
-                                                src="assets/images/shop/shopping-cart/product-2.jpg" alt=""></a>
+                                                src="assetsUserSite/images/shop/shopping-cart/product-2.jpg" alt=""></a>
                                         <div class="content">
                                             <a href="#" class="title">Principles of Business Administration</a>
                                             <span class="quantity">1 x <span class="price">$52.00</span></span>
@@ -135,7 +138,7 @@
                             </div>
                         </div>
                         <!-- Header Mini Cart End -->
-                    </div>
+                    </div> --}}
                     <!-- Header Cart End -->
 
                     <!-- Header Mobile Menu Toggle Start -->
