@@ -106,13 +106,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="<?php echo e(route('category.list')); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{" class="nav-link">
+                                    <a href="<?php echo e(route('category.add')); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>

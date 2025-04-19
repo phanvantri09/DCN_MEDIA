@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthLoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,8 +77,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
             Route::get('/show/{id}', 'show')->name('show');
         });
     });
-    Route::group(['prefix' => 'category', 'as' =>'product.'], function () {
-        Route::controller(ProductController::class)->group(function () {
+    Route::group(['prefix' => 'category', 'as' =>'category.'], function () {
+        Route::controller(CategoryController::class)->group(function () {
             // danh sách
             Route::get('/','list')->name('list');
 

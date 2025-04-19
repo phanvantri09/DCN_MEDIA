@@ -17,39 +17,40 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('product.addPost') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('category.editPost', ['id'=>$id]) }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Nhập tiêu đề...">
+                                    <input type="text" name="name" class="form-control" value="{{old('name', $data->name)}}" placeholder="Nhập tiêu đề...">
                                     @error('name')
                                     <div class="alert alert-danger">{{ $errors->first('name') }}</div>
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        </div> --}}
+                        {{-- <div class="row">
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Ảnh đại diện</label>
-                                    <input type="file" name="img" class="form-control" value="{{old('img')}}" placeholder="Nhập tiêu đề...">
+                                    <input type="file" name="img" class="form-control">
                                     @error('img')
                                     <div class="alert alert-danger">{{ $errors->first('img') }}</div>
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                            <img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->img)}}" alt="">
+                        </div> --}}
+                        {{-- <div class="row">
                             <div class="col-sm-6">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Loại</label>
                                     <select name="id_category" class="form-control">
-                                        @foreach ($dataCategory as $key => $item)
+                                        @foreach ($category as $key => $item)
                                             <option value="{{ $item->id }}"> {{ $item->title }}</option>
                                         @endforeach
                                     </select>
@@ -58,15 +59,31 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-sm-6">
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Ảnh</label>
+                                    <div class="custom-file">
+                                        <input onchange="readURL(this)" name="image" type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>
+                                    </div>
+                                    @error('image')
+                                    <div class="alert alert-danger">{{ $errors->first('image') }}</div>
+                                    @enderror
+                                </div>
+                                <div class="d-flex flex-row mt-4">
+                                    <img id="img-preview" style="width: 200px;height: 200px; object-fit: cover;" class="rounded" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png">
+                                </div>
+                            </div>
+                        </div> --}}
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Số lượng hiện tại</label>
-                                    <input type="text" name="amount" class="form-control" value="{{old('amount')}}" placeholder="Nhập.">
-                                    @error('amount')
-                                    <div class="alert alert-danger">{{ $errors->first('amount') }}</div>
+                                    <label>Tên</label>
+                                    <input type="text" name="title" class="form-control" value="{{old('title', $data->title)}}" placeholder="Nhập Tên">
+                                    @error('title')
+                                    <div class="alert alert-danger">{{ $errors->first('title') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -75,38 +92,15 @@
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Giá</label>
-                                    <input type="text" name="price" class="form-control" value="{{old('price')}}" placeholder="Nhập.">
-                                    @error('price')
-                                    <div class="alert alert-danger">{{ $errors->first('price') }}</div>
+                                    <label>Nội dung</label>
+                                    <textarea name="sub_title" rows="3" id="summernoteDescription">{{old('sub_title', $data->sub_title)}}</textarea>
+                                    @error('sub_title')
+                                    <div class="alert alert-danger">{{ $errors->first('sub_title') }}</div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Nội dung giới thiệu</label>
-                                    <input type="text" name="sub_description" class="form-control" value="{{old('sub_description')}}" placeholder="Nhập.">
-                                    @error('sub_description')
-                                    <div class="alert alert-danger">{{ $errors->first('sub_description') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Nội dung chính</label>
-                                    <textarea name="description" rows="3" id="summernoteDescription">{{old('description')}}</textarea>
-                                    @error('description')
-                                    <div class="alert alert-danger">{{ $errors->first('description') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Lưu lại</button>
                         </div>

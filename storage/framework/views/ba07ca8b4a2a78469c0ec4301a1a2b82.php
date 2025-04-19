@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('css'); ?>
     <!-- DataTables -->
     <link rel="stylesheet" href="../../admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -21,8 +20,9 @@
                             <tr>
                                 <th>stt</th>
                                 <th>Tiêu đề</th>
-                                <th>Thời gian up bài</th>
-                                <th>Link</th>
+                                <th>Giới thiệu</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
                                 <th>Ảnh </th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
@@ -33,20 +33,14 @@
                                 <tr>
                                     <td><?php echo e($key + 1); ?></td>
                                     <td><?php echo e($item->name); ?></td>
-                                    <td><?php echo e($item->time_create); ?></td>
                                     <td>
-                                        <a href="<?php echo e($item->link_ytb); ?>" target="_blank"><?php echo $item->link_ytb; ?></a><br>
-                                        <a href="<?php echo e($item->link_ytb_topic); ?>" target="_blank"><?php echo $item->link_ytb_topic; ?></a><br>
-                                        <a href="<?php echo e($item->link_zing); ?>" target="_blank"><?php echo e($item->link_zing); ?></a><br>
-                                        <a href="<?php echo e($item->link_spotify); ?>" target="_blank"><?php echo $item->link_spotify; ?></a><br>
-                                        <a href="<?php echo e($item->link_apple); ?>" target="_blank"><?php echo $item->link_apple; ?></a><br>
-                                        <a href="<?php echo e($item->link_NCT); ?>" target="_blank"><?php echo $item->link_NCT; ?></a><br>
-                                        <a href="<?php echo e($item->link_tiktok); ?>" target="_blank"><?php echo $item->link_tiktok; ?></a><br>
-                                        <a href="<?php echo e($item->link_facebook); ?>" target="_blank"><?php echo $item->link_facebook; ?></a><br>
-                                        
+                                        <?php echo e($item->sub_description ?? ''); ?>
+
                                     </td>
+                                    <td><?php echo e($item->amount); ?></td>
+                                    <td><?php echo e($item->price); ?></td>
                                     <td><img width="180px" height="auto"
-                                            src="<?php echo e(\App\Helpers\ConstCommon::getLinkImageToStorage($item->img)); ?>"
+                                            src="<?php echo e(\App\Helpers\ConstCommon::getLinkImageToStorage($item->image)); ?>"
                                             alt=""></td>
                                     <td><?php echo e(date(' H:i:s - d/m/Y', strtotime($item->created_at))); ?></td>
                                     <td>

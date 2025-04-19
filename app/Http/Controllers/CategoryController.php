@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\RQAdd;
 use App\Http\Requests\Category\RQEdit;
@@ -26,7 +26,7 @@ class CategoryController extends Controller
         return view('admin.category.add', compact(['title']));
     }
     public function addPost(RQAdd $request){
-        $data = ['name'=>$request->title ?? '', 'content'=>$request->sub_title ?? ''];
+        $data = ['title'=>$request->title ?? '', 'sub_title'=>$request->sub_title ?? ''];
         if ($this->categoryRepository->create($data)) {
             return redirect()->route('category.list')->with('success', ConstCommon::SUCCESS);
         } else {
@@ -41,9 +41,7 @@ class CategoryController extends Controller
         return view('admin.category.edit', compact(['id','title', 'data']));
     }
     public function editPost(RQEdit $request, $id){
-
-
-        $data = ['name'=>$request->title ?? '', 'content'=>$request->sub_title ?? ''];
+        $data = ['title'=>$request->title ?? '', 'sub_title'=>$request->sub_title ?? ''];
         if ($this->categoryRepository->update($data, $id)) {
             return redirect()->route('category.list')->with('success', ConstCommon::SUCCESS);
         } else {

@@ -24,19 +24,19 @@ class RQAdd extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'img' => 'required',
-            'content_pre' => 'required',
-            'content' => 'required',
+            'title' => 'required',
+            // 'img' => 'required',
+            // 'content_pre' => 'required',
+            // 'content' => 'required',
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập',
-            'img.required' => 'Vui lòng nhập',
-            'content_pre.required' => 'Vui lòng nhập',
-            'content.required' => 'Vui lòng nhập',
+            'title.required' => 'Vui lòng nhập',
+            // 'img.required' => 'Vui lòng nhập',
+            // 'content_pre.required' => 'Vui lòng nhập',
+            // 'content.required' => 'Vui lòng nhập',
         ];
     }
 }

@@ -3,7 +3,7 @@
 <head>
      <meta name="google-site-verification" content="rl9JD04KBYYNOg7JDiZBzygfodJw_BPAOMY6cyXUK9o" />
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Try92 Login</title>
+     <title>DCN Media Login</title>
      <link rel="icon" type="image/x-icon" href="<?php echo e(asset('/dist/img/logo.png')); ?>">
      <base href="<?php echo e(URL::asset('/')); ?>" target="_top">
      <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
