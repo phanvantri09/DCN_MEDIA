@@ -24,16 +24,22 @@ class RQEdit extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required', 
-            'content'=>'required', 
+            'name'=>'required',
+            'amount'=>'required',
+            'price'=>'required',
+            // 'content'=>'required',
+            'id_category' => 'required'
         ];
-        
+
     }
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập',
-            'content.required' => 'Vui lòng nhập',
+            'name'=>'required',
+            'amount'=>'required',
+            'price'=>'required',
+            // 'content'=>'required',
+            'id_category' => 'required'
         ];
     }
 }

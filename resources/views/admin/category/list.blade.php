@@ -24,11 +24,8 @@
                         <thead>
                             <tr>
                                 <th>stt</th>
-                                <th>Tiêu đề</th>
-                                <th>Giới thiệu</th>
-                                <th>Số lượng</th>
-                                <th>Giá</th>
-                                <th>Ảnh </th>
+                                <th>Tên</th>
+                                <th>Nội dung</th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
                             </tr>
@@ -37,24 +34,17 @@
                             @foreach ($data as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{!! $item->sub_title !!}</td>
+                                    <td>{{ date(' H:i:s - d/m/Y', strtotime($item->created_at))}}</td>
                                     <td>
-                                        {{ $item->sub_description ?? '' }}
-                                    </td>
-                                    <td>{{ $item->amount }}</td>
-                                    <td>{{ $item->price }}</td>
-                                    <td><img width="180px" height="auto"
-                                            src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->image) }}"
-                                            alt=""></td>
-                                    <td>{{ date(' H:i:s - d/m/Y', strtotime($item->created_at)) }}</td>
-                                    <td>
-                                        <a href="{{ route('product.show', ['id' => $item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('category.show', ['id'=>$item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-book-open"></i> Xem
                                         </a>
-                                        <a href="{{ route('product.edit', ['id' => $item->id]) }}" class="btn btn-app">
+                                        <a  href="{{ route('category.edit', ['id'=>$item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
-                                        <a href="{{ route('product.delete', ['id' => $item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('category.delete', ['id'=>$item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-trash-alt"></i>Xóa
                                         </a>
 

@@ -5,14 +5,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\RQAdd;
 use App\Http\Requests\Product\RQEdit;
 use App\Repositories\ProductRepositoryInterface;
+use App\Repositories\CategoryRepositoryInterface;
 use App\Helpers\ConstCommon;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     protected $productRepository;
-    public function __construct(ProductRepositoryInterface $productRepository) {
+    protected $categoryRepository;
+    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository) {
         $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
     }
     public function list(){
         $title = 'product list';
@@ -20,26 +23,22 @@ class ProductController extends Controller
         return view('admin.product.list', compact(['data', 'title']));
     }
     public function add(){
+        $dataCategory = $this->categoryRepository->all();
         $title = 'product Add';
-        return view('admin.product.add', compact(['title']));
+        return view('admin.product.add', compact(['title', 'dataCategory']));
     }
     public function addPost(RQAdd $request){
 
         $nameImage = 'product-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
         ConstCommon::addImageToStorage($request->img, $nameImage );
         $data = [
-            'name'=>$request->name, 
-            'img'=>$nameImage, 
-            'content'=>$request->content, 
-            'time_create'=>$request->time_create,
-            'link_ytb'=>$request->link_ytb,
-            'link_ytb_topic'=>$request->link_ytb_topic,
-            'link_zing'=>$request->link_zing,
-            'link_spotify'=>$request->link_spotify,
-            'link_apple'=>$request->link_apple,
-            'link_NCT'=>$request->link_NCT,
-            'link_tiktok'=>$request->link_tiktok,
-            'link_facebook'=>$request->link_facebook
+            'name'=>$request->name,
+            'id_category'=>$request->id_category,
+            'sub_description'=>$request->sub_description,
+            'amount'=>$request->amount,
+            'description'=>$request->description,
+            'price'=>$request->price,
+            'image'=>$nameImage
         ];
 
         if ($this->productRepository->create($data)) {
@@ -51,9 +50,9 @@ class ProductController extends Controller
     }
     public function edit($id){
         $title = 'product edit';
-
+        $dataCategory = $this->categoryRepository->all();
         $data = $this->productRepository->show($id);
-        return view('admin.product.edit', compact(['id','title', 'data']));
+        return view('admin.product.edit', compact(['id','title', 'data', 'dataCategory']));
     }
     public function editPost(RQEdit $request, $id){
 
@@ -64,32 +63,22 @@ class ProductController extends Controller
             $nameImage = 'product-'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
             ConstCommon::addImageToStorage($request->img, $nameImage );
             $data = [
-                'name'=>$request->name, 
-                'img'=>$nameImage, 
-                'content'=>$request->content, 
-                'time_create'=>$request->time_create,
-                'link_ytb'=>$request->link_ytb,
-                'link_ytb_topic'=>$request->link_ytb_topic,
-                'link_zing'=>$request->link_zing,
-                'link_spotify'=>$request->link_spotify,
-                'link_apple'=>$request->link_apple,
-                'link_NCT'=>$request->link_NCT,
-                'link_tiktok'=>$request->link_tiktok,
-                'link_facebook'=>$request->link_facebook
+                'name'=>$request->name,
+                'id_category'=>$request->id_category,
+                'sub_description'=>$request->sub_description,
+                'amount'=>$request->amount,
+                'description'=>$request->description,
+                'price'=>$request->price,
+                'image'=>$nameImage
             ];
         } else {
             $data = [
-                'name'=>$request->name, 
-                'content'=>$request->content, 
-                'time_create'=>$request->time_create,
-                'link_ytb'=>$request->link_ytb,
-                'link_ytb_topic'=>$request->link_ytb_topic,
-                'link_zing'=>$request->link_zing,
-                'link_spotify'=>$request->link_spotify,
-                'link_apple'=>$request->link_apple,
-                'link_NCT'=>$request->link_NCT,
-                'link_tiktok'=>$request->link_tiktok,
-                'link_facebook'=>$request->link_facebook
+                'name'=>$request->name,
+            'id_category'=>$request->id_category,
+            'sub_description'=>$request->sub_description,
+            'amount'=>$request->amount,
+            'description'=>$request->description,
+            'price'=>$request->price
             ];
         }
         if ($this->productRepository->update($data, $id)) {

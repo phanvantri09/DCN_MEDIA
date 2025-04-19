@@ -34,20 +34,22 @@
                 <br>
                 <b>Mã :</b> {{$data->id}}<br>
                 <b>Tên box: </b> {{$data->name}}<br>
-                <b>Xem trước:</b> {!! $data->content_pre !!}<br>
+                <b>Số lượng: </b> {{$data->amount}}<br>
+                <b>Giá: </b> {{number_format($data->price)}} VNĐ<br>
+                <b>Xem trước:</b> {!! $data->sub_description !!}<br>
             </div>
             <div class="col-sm-4 invoice-col">
                 <div class="cover-image">
-                    <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->img)}}" alt="Cover Image">
+                    <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->image)}}" alt="Cover Image">
                 </div>
             </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->
         <div class="mt-4">
-            <h3>Mô tả</h3>
+            <h3>Nội dung chính:</h3>
             <div>
-                {!! $data->content !!}
+                {!! $data->description !!}
             </div>
         </div>
     </div>

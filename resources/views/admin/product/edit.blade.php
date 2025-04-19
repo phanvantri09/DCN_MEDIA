@@ -41,125 +41,17 @@
                                     <div class="alert alert-danger">{{ $errors->first('img') }}</div>
                                     @enderror
                                 </div>
-                                <img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->img)}}" alt="">
+                                <img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->image)}}" alt="">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Thời gian tạo</label>
-                                    <input type="date" name="time_create" class="form-control" value="{{old('time_create',$data->time_create)}}" placeholder="Nhập tiêu đề...">
-                                    @error('time_create')
-                                    <div class="alert alert-danger">{{ $errors->first('time_create') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                         <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link YTB</label>
-                                    <input type="text" name="link_ytb" class="form-control" value="{{old('link_ytb',$data->link_ytb)}}" placeholder="Nhập Link.">
-                                    @error('link_ytb')
-                                    <div class="alert alert-danger">{{ $errors->first('link_ytb') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label> link_ytb_topic</label>
-                                    <input type="text" name="link_ytb_topic" class="form-control" value="{{old('link_ytb_topic',$data->link_ytb_topic)}}" placeholder="Nhập Link.">
-                                    @error('link_ytb_topic')
-                                    <div class="alert alert-danger">{{ $errors->first('link_ytb_topic') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_zing</label>
-                                    <input type="text" name="link_zing" class="form-control" value="{{old('link_zing',$data->link_zing)}}" placeholder="Nhập Link.">
-                                    @error('link_zing')
-                                    <div class="alert alert-danger">{{ $errors->first('link_zing') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_spotify</label>
-                                    <input type="text" name="link_spotify" class="form-control" value="{{old('link_spotify',$data->link_spotify)}}" placeholder="Nhập Link.">
-                                    @error('link_spotify')
-                                    <div class="alert alert-danger">{{ $errors->first('link_spotify') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_spotify nhỏ</label>
-                                    <input type="text" name="link_apple" class="form-control" value="{{old('link_apple',$data->link_apple)}}" placeholder="Nhập Link.">
-                                    @error('link_apple')
-                                    <div class="alert alert-danger">{{ $errors->first('link_apple') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_NCT</label>
-                                    <input type="text" name="link_NCT" class="form-control" value="{{old('link_NCT',$data->link_NCT)}}" placeholder="Nhập Link.">
-                                    @error('link_NCT')
-                                    <div class="alert alert-danger">{{ $errors->first('link_NCT') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_tiktok</label>
-                                    <input type="text" name="link_tiktok" class="form-control" value="{{old('link_tiktok',$data->link_tiktok)}}" placeholder="Nhập Link.">
-                                    @error('link_tiktok')
-                                    <div class="alert alert-danger">{{ $errors->first('link_tiktok') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Link link_facebook</label>
-                                    <input type="text" name="link_ytb" class="form-control" value="{{old('link_facebook',$data->link_facebook)}}" placeholder="Nhập Link.">
-                                    @error('link_facebook')
-                                    <div class="alert alert-danger">{{ $errors->first('link_facebook') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        {{-- <div class="row">
                             <div class="col-sm-6">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Loại</label>
                                     <select name="id_category" class="form-control">
-                                        @foreach ($category as $key => $item)
-                                            <option value="{{ $item->id }}"> {{ $item->title }}</option>
+                                        @foreach ($dataCategory as $key => $item)
+                                            <option value="{{ $item->id }}" {{$item->id === $data->id_category ? "selected" : "" }}> {{ $item->title }}</option>
                                         @endforeach
                                     </select>
                                     @error('id_category')
@@ -167,43 +59,51 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="custom-file">
-                                        <input onchange="readURL(this)" name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>
-                                    </div>
-                                    @error('image')
-                                    <div class="alert alert-danger">{{ $errors->first('image') }}</div>
-                                    @enderror
-                                </div>
-                                <div class="d-flex flex-row mt-4">
-                                    <img id="img-preview" style="width: 200px;height: 200px; object-fit: cover;" class="rounded" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png">
-                                </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="row">
+                        </div>
+                        <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
-                                    <label>Thông tim xem trước</label>
-                                    <textarea name="content_pre" rows="3" id="summernotecontent_pre">{{old('content_pre')}}</textarea>
-                                    @error('content_pre')
-                                    <div class="alert alert-danger">{{ $errors->first('content_pre') }}</div>
+                                    <label>Số lượng hiện tại</label>
+                                    <input type="text" name="amount" class="form-control" value="{{old('amount', $data->amount)}}" placeholder="Nhập.">
+                                    @error('amount')
+                                    <div class="alert alert-danger">{{ $errors->first('amount') }}</div>
                                     @enderror
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Giá</label>
+                                    <input type="text" name="price" class="form-control" value="{{old('price', $data->price)}}" placeholder="Nhập.">
+                                    @error('price')
+                                    <div class="alert alert-danger">{{ $errors->first('price') }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Nội dung giới thiệu</label>
+                                    <input type="text" name="sub_description" class="form-control" value="{{old('sub_description', $data->sub_description)}}" placeholder="Nhập.">
+                                    @error('sub_description')
+                                    <div class="alert alert-danger">{{ $errors->first('sub_description') }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Nội dung chính</label>
-                                    <textarea name="content" rows="3" id="summernoteDescription">{{old('content',$data->content)}}</textarea>
-                                    @error('content')
-                                    <div class="alert alert-danger">{{ $errors->first('content') }}</div>
+                                    <textarea name="description" rows="3" id="summernoteDescription">{{old('description',$data->description)}}</textarea>
+                                    @error('description')
+                                    <div class="alert alert-danger">{{ $errors->first('description') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -229,7 +129,7 @@
         $(function () {
             // Summernote
             $('#summernoteDescription').summernote();
-            
+
             $('#summernotecontent_pre').summernote();
         })
 

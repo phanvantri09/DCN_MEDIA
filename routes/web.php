@@ -87,7 +87,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
             Route::get('/show/{id}', 'show')->name('show');
         });
     });
-    Route::group(['prefix' => 'category', 'as' =>'product.'], function () {
+
+    Route::group(['prefix' => 'category', 'as' =>'category.'], function () {
         Route::controller(CategoryController::class)->group(function () {
             // danh sách
             Route::get('/','list')->name('list');
