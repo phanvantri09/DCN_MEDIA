@@ -76,4 +76,23 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
             Route::get('/show/{id}', 'show')->name('show');
         });
     });
+    Route::group(['prefix' => 'category', 'as' =>'product.'], function () {
+        Route::controller(ProductController::class)->group(function () {
+            // danh sách
+            Route::get('/','list')->name('list');
+
+            // thêm
+            Route::get('/add', 'add')->name('add');
+            Route::post('/add', 'addPost')->name('addPost');
+
+            //sửa
+            Route::get('edit/{id}','edit')->name('edit');
+            Route::post('edit/{id}','editPost')->name('editPost');
+            // xóa
+            Route::get('/delete/{id}', 'delete')->name('delete');
+
+            // hiển thị tất cả
+            Route::get('/show/{id}', 'show')->name('show');
+        });
+    });
 });

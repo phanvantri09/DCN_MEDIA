@@ -166,8 +166,8 @@
         <!-- Footer Copyright Start -->
         <div class="row">
             <div class="col">
-                <p class="copyright">Copyright &copy; 2025 Try92 <i
-                        class="fal fa-heart"></i> by <a href="https://www.facebook.com/van.tri.789547/">Try92</a>. </p>
+                <p class="copyright">Copyright &copy; 2025 DCN Media <i
+                        class="fal fa-heart"></i> by <a href="https://www.facebook.com/van.tri.789547/">DCN Media</a>. </p>
             </div>
         </div>
         <!-- Footer Copyright End -->

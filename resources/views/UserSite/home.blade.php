@@ -438,7 +438,7 @@
                                         <img src="assetsUserSite/images/about\about-3.jpg" alt="">
                                     </div>
                                     <div class="cite">
-                                        <p class="name">Try92</p>
+                                        <p class="name">DCN Media</p>
                                     </div>
                                 </div>
                             </div>

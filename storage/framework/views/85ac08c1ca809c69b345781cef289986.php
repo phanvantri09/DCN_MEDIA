@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="rl9JD04KBYYNOg7JDiZBzygfodJw_BPAOMY6cyXUK9o" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Try92 Admin</title>
+    <title>DCN Media Admin</title>
     <link rel="icon" type="image/x-icon" href="<?php echo e(asset('/dist/img/logo.png')); ?>">
     <base href="<?php echo e(URL::asset('/')); ?>" target="_top">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -81,7 +81,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Try92 &copy; 2023 </strong>
+            <strong>DCN Media &copy; 2023 </strong>
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1
             </div>
