@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Product;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\RQAdd;
 use App\Http\Requests\Product\RQEdit;
 use App\Repositories\ProductRepositoryInterface;

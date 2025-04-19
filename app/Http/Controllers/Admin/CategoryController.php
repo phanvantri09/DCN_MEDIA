@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\RQAdd;
 use App\Http\Requests\Category\RQEdit;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Helpers\ConstCommon;
-use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {

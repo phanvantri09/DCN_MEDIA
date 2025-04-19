@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use Illuminate\Http\Request;
 use App\Http\Requests\Blog\RQAdd;
 use App\Http\Requests\Blog\RQEdit;
 use App\Repositories\BlogRepositoryInterface;

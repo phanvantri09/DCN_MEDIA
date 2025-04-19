@@ -1,6 +1,4 @@
-@extends('UserSite.Layout.index')
-@section('css')
-@endsection
+@extends('front.layout.index')
 @section('content')
 <!-- Main Search Start -->
 <div class="main-search-active">
@@ -42,86 +40,6 @@
 
     </div>
 </div>
-<!-- Slider/Intro Section End -->
-
-<!-- Gym Categories Start -->
-{{-- <div class="section">
-    <div class="container-fluid p-0">
-        <div class="row row-cols-xl-4 row-cols-lg-2 row-cols-sm-2 row-cols-1 g-0">
-
-            <!-- Single Gym Categories Start -->
-            <div class="col" data-aos="fade-right">
-                <div class="gym-cate">
-                    <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-1.jpg"
-                                alt="Categories"></a>
-                    </div>
-                    <div class="cate-content">
-                        <div class="cate-inner">
-                            <h3 class="title">CARDIO</h3>
-                            <a href="#" class="btn btn-light btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Gym Categories End -->
-
-            <!-- Single Gym Categories Start -->
-            <div class="col" data-aos="fade-up">
-                <div class="gym-cate">
-                    <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-2.jpg"
-                                alt="Categories"></a>
-                    </div>
-                    <div class="cate-content">
-                        <div class="cate-inner">
-                            <h3 class="title">BODY BUILD</h3>
-                            <a href="#" class="btn btn-light btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Gym Categories End -->
-
-            <!-- Single Gym Categories Start -->
-            <div class="col" data-aos="fade-down">
-                <div class="gym-cate">
-                    <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-3.jpg"
-                                alt="Categories"></a>
-                    </div>
-                    <div class="cate-content">
-                        <div class="cate-inner">
-                            <h3 class="title">BOXING</h3>
-                            <a href="#" class="btn btn-light btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Gym Categories End -->
-
-            <!-- Single Gym Categories Start -->
-            <div class="col" data-aos="fade-left">
-                <div class="gym-cate">
-                    <div class="cat-image">
-                        <a class="image" href="#"><img src="assetsUserSite/images/gym-cate/cate-4.jpg"
-                                alt="Categories"></a>
-                    </div>
-                    <div class="cate-content">
-                        <div class="cate-inner">
-                            <h3 class="title">YOGA</h3>
-                            <a href="#" class="btn btn-light btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Gym Categories End -->
-
-        </div>
-    </div>
-</div> --}}
-<!-- Gym Categories End -->
-
 <!-- About Section Start -->
 <div class="section section-padding-t100-b140 section-fluid">
     <div class="container">
@@ -130,11 +48,6 @@
         </div>
         <div class="row align-items-center">
             <div class="col-lg-7" data-aos="fade-up">
-                <!-- About Image Start -->
-                {{-- <div class="about-image">
-                    <img src="assetsUserSite/images/about/about-3.jpg" alt="">
-                </div> --}}
-                <!-- About Image End -->
             </div>
             <div class="col-lg-5" data-aos="fade-up">
                 <!-- About Content Start -->
@@ -218,85 +131,6 @@
     </div>
 </div>
 <!-- Coaches Section End -->
-
-<!-- Event Section Start -->
-{{-- <div class="section section-padding-t100-b115 section-fluid">
-    <div class="container">
-        <!-- Section Title Start -->
-        <div class="section-title text-center" data-aos="fade-up">
-            <h2 class="title">CLASS EVENTS</h2>
-            <p class="sub-title">Phasellus nulla mauris, imperdiet a augue a</p>
-        </div>
-        <!-- Section Title End -->
-        <div class="event-slider swiper-container" data-aos="fade-up" data-aos-delay="300">
-
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <!-- Single Event Start -->
-                    <div class="single-event">
-                        <div class="event-head">
-                            <h3 class="title">GRADIO</h3>
-                            <span class="date">01-27-2020</span>
-                        </div>
-                        <div class="desc">
-                            <p>Vestibulum sed lectus massa. Donec egestas, diam sed ultrices hendrerit, est
-                                justo gravida eros, a mollis ips</p>
-                        </div>
-                        <div class="action">
-                            <a href="#" class="btn btn-outline-secondary btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                    <!-- Single Event End -->
-                </div>
-
-                <div class="swiper-slide">
-                    <!-- Single Event Start -->
-                    <div class="single-event">
-                        <div class="event-head">
-                            <h3 class="title">CROSSFIT</h3>
-                            <span class="date">01-27-2020</span>
-                        </div>
-                        <div class="desc">
-                            <p>Vestibulum sed lectus massa. Donec egestas, diam sed ultrices hendrerit, est
-                                justo gravida eros, a mollis ips</p>
-                        </div>
-                        <div class="action">
-                            <a href="#" class="btn btn-outline-secondary btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                    <!-- Single Event End -->
-                </div>
-
-                <div class="swiper-slide">
-                    <!-- Single Event Start -->
-                    <div class="single-event">
-                        <div class="event-head">
-                            <h3 class="title">POWERLIFTING</h3>
-                            <span class="date">01-27-2020</span>
-                        </div>
-                        <div class="desc">
-                            <p>Vestibulum sed lectus massa. Donec egestas, diam sed ultrices hendrerit, est
-                                justo gravida eros, a mollis ips</p>
-                        </div>
-                        <div class="action">
-                            <a href="#" class="btn btn-outline-secondary btn-hover-primary">START NOW</a>
-                        </div>
-                    </div>
-                    <!-- Single Event End -->
-                </div>
-
-            </div>
-
-            <div class="col">
-
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-<!-- Event Section End -->
-
 <!-- Video Section Start -->
 <div class="section section-padding-t185-b150 section-fluid" data-bg-image="" style="background-color: black; margin-bottom: 10px">
     <div class="container">
@@ -310,53 +144,6 @@
     </div>
 </div>
 <!-- Video Section End -->
-
-<!-- Calculate Section Start  -->
-{{-- <div class="section section-fluid-240">
-    <div class="container">
-        <div class="calculate-box">
-            <!-- Section Title Start -->
-            <div class="section-title text-center" data-aos="fade-up">
-                <h2 class="title">CALCULATE YOUR BMI</h2>
-                <p>Your BMR calculator generates the number of calories your body burns per day at rest. Your
-                    BMR with activity factor is the number of calories your body burns per day based on the
-                    activity factor you selected.</p>
-            </div>
-            <!-- Section Title End -->
-            <div class="calculate-form" data-aos="fade-up" data-aos-delay="300">
-                <form action="#">
-                    <div class="row mb-n6">
-                        <div class="col-lg-6 mb-6">
-                            <input type="text" placeholder="Height / cm" name="height">
-                        </div>
-                        <div class="col-lg-6 mb-6">
-                            <input type="text" placeholder="Weight / kg" name="weight">
-                        </div>
-                        <div class="col-lg-6 mb-6">
-                            <input type="text" placeholder="Age" name="age">
-                        </div>
-                        <div class="col-lg-6 mb-6">
-                            <input type="text" placeholder="Sex" name="sex">
-                        </div>
-                        <div class="col-12 mb-6">
-                            <select>
-                                <option value="default">Select an activity factor:</option>
-                                <option value="little">Little or no Exercise / desk job</option>
-                                <option value="light">Light exercise / sports 1 – 3 days/ week</option>
-                                <option value="moderate">Moderate Exercise, sports 3 – 5 days / week</option>
-                                <option value="heavy">Heavy Exercise / sports 6 – 7 days / week</option>
-                            </select>
-                        </div>
-                        <div class="col-12 text-center mb-6">
-                            <button class="btn btn-primary btn-hover-dark btn-width-200-60">CALCULATE</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- Calculate Section End  -->
 
 <!-- Banner Section Start -->
 <div class="section">
@@ -438,7 +225,7 @@
                                         <img src="assetsUserSite/images/about\about-3.jpg" alt="">
                                     </div>
                                     <div class="cite">
-                                        <p class="name">DCN Media</p>
+                                        <p class="name">Try92</p>
                                     </div>
                                 </div>
                             </div>
@@ -592,6 +379,4 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
 @endsection

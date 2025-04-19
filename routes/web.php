@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\AuthLoginController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +31,15 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
         Route::get('/blogs','blogs')->name('blogs');
         Route::get('/services','services')->name('services');
-        // Route::get('/tracks','tracks')->name('tracks');
     });
+
+    Route::group(['prefix' => 'product', 'as' =>'product.', 'middleware'=>['CheckLoginUser']], function () {
+        Route::controller(FrontProductController::class)->group(function () {
+            Route::get('/','list')->name('list');
+            Route::get('/load-more','loadProducts')->name('load');
+        });
+    });
+    
 });
 
 Route::controller(AuthLoginController::class)->group(function () {
@@ -58,7 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
         });
     });
     Route::group(['prefix' => 'product', 'as' =>'product.'], function () {
-        Route::controller(ProductController::class)->group(function () {
+        Route::controller(AdminProductController::class)->group(function () {
             // danh sách
             Route::get('/','list')->name('list');
 
@@ -77,7 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
         });
     });
     Route::group(['prefix' => 'category', 'as' =>'product.'], function () {
-        Route::controller(ProductController::class)->group(function () {
+        Route::controller(CategoryController::class)->group(function () {
             // danh sách
             Route::get('/','list')->name('list');
 

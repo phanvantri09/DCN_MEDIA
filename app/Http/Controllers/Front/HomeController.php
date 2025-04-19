@@ -1,32 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Front;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     public function home() : View
     {
-        return view('UserSite.home');
+        return view('front.layout.home');
     }
-
-    public function shop() : View
-    {
-        return view('UserSite.shop');
-    }
-
-    //     Route::get('/blogs','blogs')->name('blogs');
-    //     Route::get('/services','services')->name('services');
 
     public function blogs(Request $request) : View
     {
         if (empty($request->name)) {
-            return view('UserSite.detailBlogs');
+            return view('front.blog.detail');
         }
-        return view('UserSite.blogs');
+        return view('front.blog.index');
     }
 
     public function services(Request $request) : View
