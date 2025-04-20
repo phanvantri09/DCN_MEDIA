@@ -22,7 +22,7 @@
                         </div>
                         <div class="shop-topbar-right shop-tab-flex">
                             <div class="short-by">
-                                <a class="dropdown-toggle">Sort By</a>
+                                <a>Sort By</a>
                                 <ul class="sort-by-dropdown">
                                     <li class="active"><a class="sort-option" data-sort="default">Default sorting</a></li>
                                     <li><a class="sort-option" data-sort="price_low">Sort by price: low to high</a></li>
@@ -30,7 +30,7 @@
                                 </ul>
                             </div>
                             <div class="filter short-by">
-                                <a class="dropdown-toggle">Filter</a>
+                                <a style="border-top:0 ;">Filter</a>
                                 <ul class="sort-by-dropdown">
                                     <li><a class="filter-option" data-filter="all">All Products</a></li>
                                     @foreach ($perPageOptions as $option)
@@ -92,10 +92,12 @@
                     @endforeach
                 </div>
                 <div class="row" data-aos="fade-up">
+                @if ($products->count() < $totalProducts)
                     <div class="col-12 mt-xl-20 mt-10 text-center">
                         <a class="shop-load-more-btn" id="load-more" data-offset="{{ count($products) }}"
                             data-limit="{{ $currentPerPage }}">Load More <i class="fal fa-arrow-down"></i></a>
                     </div>
+                @endif
                 </div>
             @endif
         </div>
@@ -107,8 +109,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            let offset = parseInt($('#load-more').data('offset'));
-            let limit = parseInt($('#load-more').data('limit'));
+            let offset = parseInt($('#load-more').data('offset') || 0);
+            let limit = parseInt($('#load-more').data('limit') || {{ $currentPerPage }});
+            let total = parseInt($('#load-more').data('total') || {{ $totalProducts }});
             let sort = 'default';
             let filter = 'all';
 

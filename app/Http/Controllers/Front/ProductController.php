@@ -6,24 +6,27 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 class ProductController extends Controller
 {
-   public function List(Request $request)
-   {
-      $perPage = $request->input('per_page', 9);
-      $perPageOptions = [9, 12, 18, 24];
+    public function List(Request $request)
+    {
+        $perPage = $request->input('per_page', 9);
+        $perPageOptions = [9, 12, 18, 24];
 
-      $products = Product::with('category')
-         ->orderBy('created_at', 'desc')
-         ->take($perPage)
-         ->get();
+        $products = Product::with('category')
+            ->orderBy('created_at', 'desc')
+            ->take($perPage)
+            ->get();
 
-      return view('front.product.index', [
-         'title' => 'Shop Products',
-         'products' => $products,
-         'perPageOptions' => $perPageOptions,
-         'currentPerPage' => $perPage,
-      ]);
-   }
-   public function loadProducts(Request $request)
+        // Tính tổng số sản phẩm có thể tải
+        $totalProducts = Product::count();
+        return view('front.product.index', [
+            'title' => 'Shop Products',
+            'products' => $products,
+            'perPageOptions' => $perPageOptions,
+            'currentPerPage' => $perPage,
+            'totalProducts' => $totalProducts,
+        ]);
+    }
+    public function loadProducts(Request $request)
     {
         $offset = $request->query('offset', 0);
         $limit = $request->query('limit', 9);
@@ -50,9 +53,11 @@ class ProductController extends Controller
                 $query->orderBy('created_at', 'desc');
                 break;
         }
+        // Lấy tổng số sản phẩm
+        $total = $query->count();
 
         $products = $query->offset($offset)->limit($limit)->get();
-        return response()->json(['products' => $products]);
+        return response()->json(['products' => $products, 'total' => $total]);
     }
 }
 
