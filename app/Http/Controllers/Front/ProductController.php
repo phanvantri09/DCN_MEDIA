@@ -14,7 +14,19 @@ class ProductController extends Controller
         $products = Product::with('category')
             ->orderBy('created_at', 'desc')
             ->take($perPage)
-            ->get();
+            ->get()
+            ->map(function ($product) {
+                $hasDiscount = $product->discount > 0;
+                $discountedPrice = $hasDiscount ? $product->price * (1 - $product->discount / 100) : $product->price;
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'price' => number_format($discountedPrice, 2),
+                    'original_price' => $hasDiscount ? number_format($product->price, 2) : null,
+                    'discount' => $product->discount,
+                    'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($product->image),
+                ];
+            });
 
         // Tính tổng số sản phẩm có thể tải
         $totalProducts = Product::count();
@@ -57,6 +69,19 @@ class ProductController extends Controller
         $total = $query->count();
 
         $products = $query->offset($offset)->limit($limit)->get();
+        $products = $products->map(function ($product) {
+
+            $hasDiscount = $product->discount > 0;
+            $discountedPrice = $hasDiscount ? $product->price * (1 - $product->discount / 100) : $product->price;
+            return [
+                'id' => $product->id,
+                'name' => $product->name,
+                'price' => number_format($discountedPrice, 2),
+                'original_price' => $hasDiscount ? number_format($product->price, 2) : null,
+                'discount' => $product->discount,
+                'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($product->image),
+            ];
+        });
         return response()->json(['products' => $products, 'total' => $total]);
     }
 }

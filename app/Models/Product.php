@@ -14,6 +14,7 @@ class Product extends Model
         'name',
         'sub_description',
         'amount',
+        'discount',
         'description',
         'price',
         'image'

@@ -17,16 +17,18 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('product.editPost', ['id'=>$id]) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('product.editPost', ['id' => $id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="name" class="form-control" value="{{old('name',$data->name)}}" placeholder="Nhập tiêu đề...">
+                                    <input type="text" name="name" class="form-control" value="{{old('name', $data->name)}}"
+                                        placeholder="Nhập tiêu đề...">
                                     @error('name')
-                                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('name') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -36,12 +38,14 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Ảnh đại diện</label>
-                                    <input type="file" name="img" class="form-control" value="{{old('img')}}" placeholder="Nhập tiêu đề...">
+                                    <input type="file" name="img" class="form-control" value="{{old('img')}}"
+                                        placeholder="Nhập tiêu đề...">
                                     @error('img')
-                                    <div class="alert alert-danger">{{ $errors->first('img') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('img') }}</div>
                                     @enderror
                                 </div>
-                                <img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->image)}}" alt="">
+                                <img width="180px" height="auto"
+                                    src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->image)}}" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -55,7 +59,7 @@
                                         @endforeach
                                     </select>
                                     @error('id_category')
-                                    <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -65,9 +69,10 @@
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Số lượng hiện tại</label>
-                                    <input type="text" name="amount" class="form-control" value="{{old('amount', $data->amount)}}" placeholder="Nhập.">
+                                    <input type="text" name="amount" class="form-control"
+                                        value="{{old('amount', $data->amount)}}" placeholder="Nhập.">
                                     @error('amount')
-                                    <div class="alert alert-danger">{{ $errors->first('amount') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('amount') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -77,9 +82,10 @@
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Giá</label>
-                                    <input type="text" name="price" class="form-control" value="{{old('price', $data->price)}}" placeholder="Nhập.">
+                                    <input type="text" name="price" class="form-control"
+                                        value="{{old('price', $data->price)}}" placeholder="Nhập.">
                                     @error('price')
-                                    <div class="alert alert-danger">{{ $errors->first('price') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('price') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -88,10 +94,31 @@
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
+                                    <label>Giảm giá (%)</label>
+                                    <select name="discount" class="form-control">
+                                        <option value="">Không giảm giá</option>
+                                        @for ($i = 10; $i <= 100; $i += 10)
+                                            <option value="{{ $i }}" {{ old('discount', $data->discount) == $i ? 'selected' : '' }}>{{ $i }}
+                                                %
+                                            </option>
+                                        @endfor
+                                    </select>
+                                    @error('discount')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- select -->
+                                <div class="form-group">
                                     <label>Nội dung giới thiệu</label>
-                                    <input type="text" name="sub_description" class="form-control" value="{{old('sub_description', $data->sub_description)}}" placeholder="Nhập.">
+                                    <input type="text" name="sub_description" class="form-control"
+                                        value="{{old('sub_description', $data->sub_description)}}" placeholder="Nhập.">
                                     @error('sub_description')
-                                    <div class="alert alert-danger">{{ $errors->first('sub_description') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('sub_description') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -101,9 +128,10 @@
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Nội dung chính</label>
-                                    <textarea name="description" rows="3" id="summernoteDescription">{{old('description',$data->description)}}</textarea>
+                                    <textarea name="description" rows="3"
+                                        id="summernoteDescription">{{old('description', $data->description)}}</textarea>
                                     @error('description')
-                                    <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('description') }}</div>
                                     @enderror
                                 </div>
                             </div>
