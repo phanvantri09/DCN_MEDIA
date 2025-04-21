@@ -8,23 +8,23 @@
     <meta name="description" content="Try out Gymate Gym Fitness Bootstrap 5 Template today because this awesome fitness related website template comes completely free of any cost.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
 
     <!-- CSS
 	============================================ -->
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="assetsUserSite/css/vendor/font-awesome-pro.min.css">
-    <link rel="stylesheet" href="assetsUserSite/css/vendor/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/vendor/font-awesome-pro.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/vendor/pe-icon-7-stroke.css') }}">
 
     <!-- Plugins CSS (All Plugins Files) -->
-    <link rel="stylesheet" href="assetsUserSite/css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="assetsUserSite/css/plugins/animate.css">
-    <link rel="stylesheet" href="assetsUserSite/css/plugins/aos.min.css">
-    <link rel="stylesheet" href="assetsUserSite/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/plugins/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/plugins/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/plugins/aos.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/plugins/magnific-popup.css') }}">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assetsUserSite/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assetsUserSite/css/style.css') }}">
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
     <!-- <link rel="stylesheet" href="assetsUserSite/css/vendor/vendor.min.css">
@@ -57,27 +57,27 @@
 
     <!-- Vendors JS -->
     @yield('scripts')
-    <script src="assetsUserSite/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="assetsUserSite/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assetsUserSite/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assetsUserSite/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assetsUserSite/js/vendor/modernizr-3.11.2.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/vendor/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/vendor/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Plugins JS -->
-    <script src="assetsUserSite/js/plugins/aos.min.js"></script>
-    <script src="assetsUserSite/js/plugins/jquery.ajaxchimp.min.js"></script>
-    <script src="assetsUserSite/js/plugins/jquery.counterup.min.js"></script>
-    <script src="assetsUserSite/js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="assetsUserSite/js/plugins/vivus.min.js"></script>
-    <script src="assetsUserSite/js/plugins/svg-inject.min.js"></script>
-    <script src="assetsUserSite/js/plugins/swiper.min.js"></script>
-    <script src="assetsUserSite/js/plugins/waypoints.min.js"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/aos.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/vivus.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/svg-inject.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/swiper.min.js') }}"></script>
+    <script src="{{ asset('assetsUserSite/js/plugins/waypoints.min.js') }}"></script>
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
     <!-- <script src="assetsUserSite/js/vendor/vendor.min.js"></script>
     <script src="assetsUserSite/js/plugins/plugins.min.js"></script> -->
 
     <!-- Main Activation JS -->
-    <script src="assetsUserSite/js/main.js"></script>
+    <script src="{{ asset('assetsUserSite/js/main.js') }}"></script>
 
 
 

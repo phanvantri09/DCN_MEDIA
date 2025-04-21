@@ -37,6 +37,7 @@ Route::group(['prefix' => '/'], function () {
         Route::controller(FrontProductController::class)->group(function () {
             Route::get('/','list')->name('list');
             Route::get('/load-more','loadProducts')->name('load');
+            Route::get('/{id}','detail')->name('detail');
         });
     });
     

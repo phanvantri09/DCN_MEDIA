@@ -78,7 +78,7 @@
                                             <span class="sale">{{ '-' . $product['discount'] . '%' }}</span>
                                         </div>
                                     @endif
-                                    <a href="/product-details/{{ $product['id'] }}">
+                                    <a href="{{ $product['url'] }}">
                                         <img src="{{ $product['image'] }}" class="w-100" alt="{{ $product['name'] }}">
                                     </a>
                                     <div class="product-action">
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content text-left">
-                                    <h3 class="title"><a href="/product-details/{{ $product['id'] }}">{{ $product['name'] }}</a></h3>
+                                    <h3 class="title"><a href="{{ $product['url'] }}">{{ $product['name'] }}</a></h3>
                                     <p class="product-price">
                                         @if ($product['discount'])
                                             <span
@@ -202,7 +202,7 @@
                                                         <div class="product-label">
                                                             <span class="sale">-${product.discount}%</span>
                                                         </div>` : ''}
-                                                        <a href="/product-details/${product.id}">
+                                                        <a href="${product.url}">
                                                             <img src="${product.image}" class="w-100" alt="${product.name}">
                                                         </a>
                                                         <div class="product-action">
@@ -213,7 +213,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-content text-left">
-                                                        <h3 class="title"><a href="/product-details/${product.id}">${product.name}</a></h3>
+                                                        <h3 class="title"><a href="${product.url}">${product.name}</a></h3>
                                                         <p class="product-price">
                                                             ${product.discount ? `<span class="main-price discounted"><del>$${product.original_price}</del></span>` : ''}
                                                             <span class="discounted-price">$${product.price}</span>

@@ -61,6 +61,19 @@ class ProductController extends Controller
         $products = $products->map(fn ($product)=> $product->formatProductForDisplay());
         return response()->json(['products' => $products, 'total' => $total]);
     }
+
+    public function detail($id)
+    {
+        $product = Product::with('category')->findOrFail($id);
+        $data = $product->formatProductForDisplay();
+        if (!$data) {
+            return redirect()->route('product.list')->with('error', 'Product not found');
+        }
+        return view('front.product.detail', [
+            'title' => 'Product Detail',
+            'data' => $data,
+        ]);
+    }
 }
 
 
