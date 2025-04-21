@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     public function List(Request $request)
     {
-        $perPage = $request->input('per_page', 9);
+        $perPage = $request->input('per_page', 12);
         $perPageOptions = [9, 12, 18, 24];
 
         $products = Product::with('category')

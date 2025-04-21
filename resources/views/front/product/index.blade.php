@@ -44,6 +44,15 @@
                                     @endforeach
                                 </ul>
                             </div>
+                            <div class="filter short-by">
+                                <a style="border-top:0 ;">Category</a>
+                                <ul class="sort-by-dropdown">
+                                    @foreach (\App\Models\Category::all() as $category)
+                                        <li><a class="filter-option"
+                                                data-filter="category_{{ $category->id }}">{{ $category->title }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             <div class="shop-tab nav">
                                 <a class="active"><i class="fa fa-th"></i></a>
                             </div>
@@ -94,7 +103,8 @@
                 <div class="row" data-aos="fade-up">
                     <div class="col-12 mt-xl-20 mt-10 text-center">
                         <a class="shop-load-more-btn" id="load-more" data-offset="{{ count($products) }}"
-                            data-limit="{{ $currentPerPage }}" data-total="{{ $totalProducts }}">Load More <i class="fal fa-arrow-down"></i></a>
+                            data-limit="{{ $currentPerPage }}" data-total="{{ $totalProducts }}">Load More <i
+                                class="fal fa-arrow-down"></i></a>
                     </div>
                 </div>
             @endif
@@ -107,131 +117,130 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-        let offset = parseInt($('#load-more').data('offset') || 0);
-        let limit = parseInt($('#load-more').data('limit') || {{ $currentPerPage }});
-        let total = parseInt($('#load-more').data('total') || {{ $totalProducts }});
-        let sort = 'default';
-        let filter = 'all';
+            let offset = parseInt($('#load-more').data('offset') || 0);
+            let limit = parseInt($('#load-more').data('limit') || {{ $currentPerPage }});
+            let total = parseInt($('#load-more').data('total') || {{ $totalProducts }});
+            let sort = 'default';
+            let filter = 'all';
 
-        // Kiểm tra ban đầu xem có cần hiển thị nút Load More không
-        if (offset >= total) {
-            $('#load-more').hide();
-        }
-
-        // Xử lý khi nhấn "Load More"
-        $('#load-more').click(function (e) {
-            e.preventDefault();
-
-            // Kiểm tra nếu đã tải hết sản phẩm
+            // Kiểm tra ban đầu xem có cần hiển thị nút Load More không
             if (offset >= total) {
                 $('#load-more').hide();
-                return;
-            }
-            // Gửi yêu cầu với offset hiện tại
-            loadProducts(offset, limit, sort, filter);
-        });
-
-        // Xử lý sắp xếp
-        $('.sort-option').click(function (e) {
-            e.preventDefault();
-            sort = $(this).data('sort');
-            offset = 0;
-            $('#product-list').empty();
-            loadProducts(offset, limit, sort, filter);
-            $('.sort-option').parent().removeClass('active');
-            $(this).parent().addClass('active');
-        });
-
-        // Xử lý lọc và số lượng hiển thị
-        $('.filter-option').click(function (e) {
-            e.preventDefault();
-            let filterValue = $(this).data('filter');
-            offset = 0;
-            $('#product-list').empty();
-
-            if (filterValue === 'all') {
-                limit = total; // Đặt limit bằng total để tải tất cả sản phẩm
-                filter = 'all';
-            } else if (filterValue.startsWith('limit_')) {
-                limit = parseInt(filterValue.replace('limit_', '')); // Cập nhật limit
-                filter = 'all'; // Reset filter danh mục
-            } else {
-                filter = filterValue; // Filter theo danh mục
             }
 
-            console.log('Filter:', filter, 'Limit:', limit, 'Offset:', offset);
+            // Xử lý khi nhấn "Load More"
+            $('#load-more').click(function (e) {
+                e.preventDefault();
 
-            loadProducts(offset, limit, sort, filter);
-            $('.filter-option').parent().removeClass('active');
-            $(this).parent().addClass('active');
-        });
-
-        function loadProducts(offset, limit, sort, filter) {
-            console.log('Sending AJAX with Offset:', offset, 'Limit:', limit, 'Total:', total); // Debug
-            $.ajax({
-                url: "{{ route('product.load') }}",
-                method: "GET",
-                data: {
-                    offset: offset,
-                    limit: limit,
-                    sort: sort,
-                    filter: filter
-                },
-                success: function (response) {
-                    console.log('Response:', response); // Debug phản hồi
-                    if (response.products && response.products.length > 0) {
-                        let productsHtml = '';
-                        $.each(response.products, function (index, product) {
-                            productsHtml += `
-                                <div class="col mb-10" data-aos="fade-up">
-                                    <div class="single-grid-product">
-                                        <div class="product-image">
-                                            <div class="product-label">
-                                                <span class="sale">${product.discount ? '-' + product.discount + '%' : ''}</span>
-                                            </div>
-                                            <a href="/product-details/${product.id}">
-                                                <img src="${product.image}" class="w-100" alt="${product.name}">
-                                            </a>
-                                            <div class="product-action">
-                                                <ul>
-                                                    <li><a href="/wishlist/${product.id}"><i class="fal fa-heart"></i></a></li>
-                                                    <li><a href="/cart/${product.id}"><i class="fal fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-left">
-                                            <h3 class="title"><a href="/product-details/${product.id}">${product.name}</a></h3>
-                                            <p class="product-price">
-                                                ${product.discount ? `<span class="main-price discounted"><del>$${product.original_price}</del></span>` : ''}
-                                                <span class="discounted-price">$${product.price}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>`;
-                        });
-                        $('#product-list').append(productsHtml);
-                    }
-
-                    // Cập nhật total từ server
-                    total = response.total;
-
-                    // Tăng offset sau khi tải thành công
-                    offset += response.products.length;
-
-                    // Cập nhật hiển thị nút Load More
-                    if (offset >= total) {
-                        $('#load-more').hide();
-                    } else {
-                        $('#load-more').show();
-                    }
-                },
-                error: function (xhr) {
-                    console.error('Error:', xhr.status, xhr.responseText); // Debug lỗi
-                    alert('Error loading products: ' + xhr.status);
+                // Kiểm tra nếu đã tải hết sản phẩm
+                if (offset >= total) {
+                    $('#load-more').hide();
+                    return;
                 }
+                // Gửi yêu cầu với offset hiện tại
+                loadProducts(offset, limit, sort, filter);
             });
-        }
-    });
+
+            // Xử lý sắp xếp
+            $('.sort-option').click(function (e) {
+                e.preventDefault();
+                sort = $(this).data('sort');
+                offset = 0;
+                $('#product-list').empty();
+                loadProducts(offset, limit, sort, filter);
+                $('.sort-option').parent().removeClass('active');
+                $(this).parent().addClass('active');
+            });
+
+            // Xử lý lọc và số lượng hiển thị
+            $('.filter-option').click(function (e) {
+                e.preventDefault();
+                let filterValue = $(this).data('filter');
+                offset = 0;
+                $('#product-list').empty();
+
+                if (filterValue === 'all') {
+                    limit = total; // Đặt limit bằng total để tải tất cả sản phẩm
+                    filter = 'all';
+                } else if (filterValue.startsWith('limit_')) {
+                    limit = parseInt(filterValue.replace('limit_', '')); // Cập nhật limit
+                    filter = 'all'; // Reset filter danh mục
+                } else {
+                    filter = filterValue; // Filter theo danh mục
+                }
+
+                console.log('Filter:', filter, 'Limit:', limit, 'Offset:', offset);
+
+                loadProducts(offset, limit, sort, filter);
+                $('.filter-option').parent().removeClass('active');
+                $(this).parent().addClass('active');
+            });
+
+            function loadProducts(offset, limit, sort, filter) {
+                console.log('Sending AJAX with Offset:', offset, 'Limit:', limit, 'Total:', total); // Debug
+                $.ajax({
+                    url: "{{ route('product.load') }}",
+                    method: "GET",
+                    data: {
+                        offset: offset,
+                        limit: limit,
+                        sort: sort,
+                        filter: filter
+                    },
+                    success: function (response) {
+                        console.log('Response:', response); // Debug phản hồi
+                        if (response.products && response.products.length > 0) {
+                            let productsHtml = '';
+                            $.each(response.products, function (index, product) {
+                                productsHtml += `
+                                    <div class="col mb-10" data-aos="fade-up">
+                                        <div class="single-grid-product">
+                                            <div class="product-image">
+                                                <div class="product-label">
+                                                    <span class="sale">${product.discount ? '-' + product.discount + '%' : ''}</span>
+                                                </div>
+                                                <a href="/product-details/${product.id}">
+                                                    <img src="${product.image}" class="w-100" alt="${product.name}">
+                                                </a>
+                                                <div class="product-action">
+                                                    <ul>
+                                                        <li><a href="/wishlist/${product.id}"><i class="fal fa-heart"></i></a></li>
+                                                        <li><a href="/cart/${product.id}"><i class="fal fa-shopping-cart"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-left">
+                                                <h3 class="title"><a href="/product-details/${product.id}">${product.name}</a></h3>
+                                                <p class="product-price">
+                                                    ${product.discount ? `<span class="main-price discounted"><del>$${product.original_price}</del></span>` : ''}
+                                                    <span class="discounted-price">$${product.price}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                            });
+                            $('#product-list').append(productsHtml);
+                        }
+
+                        // Cập nhật total từ server
+                        total = response.total;
+
+                        // Tăng offset sau khi tải thành công
+                        offset += response.products.length;
+
+                        // Cập nhật hiển thị nút Load More
+                        if (offset >= total) {
+                            $('#load-more').hide();
+                        } else {
+                            $('#load-more').show();
+                        }
+                    },
+                    error: function (xhr) {
+                        console.error('Error:', xhr.status, xhr.responseText); // Debug lỗi
+                        alert('Error loading products: ' + xhr.status);
+                    }
+                });
+            }
+        });
     </script>
 @endsection
-
