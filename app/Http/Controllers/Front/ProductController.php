@@ -15,19 +15,8 @@ class ProductController extends Controller
             ->orderBy('created_at', 'desc')
             ->take($perPage)
             ->get()
-            ->map(function ($product) {
-                $hasDiscount = $product->discount > 0;
-                $discountedPrice = $hasDiscount ? $product->price * (1 - $product->discount / 100) : $product->price;
-                return [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'price' => number_format($discountedPrice, 2),
-                    'original_price' => $hasDiscount ? number_format($product->price, 2) : null,
-                    'discount' => $product->discount,
-                    'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($product->image),
-                ];
-            });
-
+            ->map(fn($product) => $product->formatProductForDisplay());
+                
         // Tính tổng số sản phẩm có thể tải
         $totalProducts = Product::count();
         return view('front.product.index', [
@@ -69,19 +58,7 @@ class ProductController extends Controller
         $total = $query->count();
 
         $products = $query->offset($offset)->limit($limit)->get();
-        $products = $products->map(function ($product) {
-
-            $hasDiscount = $product->discount > 0;
-            $discountedPrice = $hasDiscount ? $product->price * (1 - $product->discount / 100) : $product->price;
-            return [
-                'id' => $product->id,
-                'name' => $product->name,
-                'price' => number_format($discountedPrice, 2),
-                'original_price' => $hasDiscount ? number_format($product->price, 2) : null,
-                'discount' => $product->discount,
-                'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($product->image),
-            ];
-        });
+        $products = $products->map(fn ($product)=> $product->formatProductForDisplay());
         return response()->json(['products' => $products, 'total' => $total]);
     }
 }

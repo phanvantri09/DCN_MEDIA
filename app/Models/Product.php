@@ -24,4 +24,19 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'id_category');
     }
+
+    public function formatProductForDisplay()
+    {
+        $hasDiscount = $this->discount > 0;
+        $discountedPrice = $hasDiscount ? $this->price * (1 - $this->discount / 100) : $this->price;
+
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'price' => number_format($discountedPrice, 2),
+            'original_price' => $hasDiscount ? number_format($this->price, 2) : null,
+            'discount' => $this->discount,
+            'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($this->image),
+        ];
+    }
 }
