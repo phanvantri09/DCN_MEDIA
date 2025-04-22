@@ -33,7 +33,7 @@ Route::group(['prefix' => '/'], function () {
         Route::get('/services','services')->name('services');
     });
 
-    Route::group(['prefix' => 'product', 'as' =>'product.', 'middleware'=>['CheckLoginUser']], function () {
+    Route::group(['prefix' => 'product', 'as' =>'product.'], function () {
         Route::controller(FrontProductController::class)->group(function () {
             Route::get('/','list')->name('list');
             Route::get('/load-more','loadProducts')->name('load');
