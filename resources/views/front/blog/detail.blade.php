@@ -1,5 +1,12 @@
 @extends('front.layout.index')
 @section('content')
+    <div class="page-title-section section" data-bg-image="assetsUsersite/images/bg/breadcrumb-shop.jpg">
+        <div class="page-title pt-lg-10 pt-10">
+            <div class="container">
+                <h1 class="title">{{ $title ?? 'DCN Media Bài Viết' }}</h1>
+            </div>
+        </div>
+    </div>
     <!-- Blog Details Section Start -->
     <div class="section section-padding-170">
         <div class="container">
@@ -8,84 +15,40 @@
                     <!-- Blog Start -->
                     <div class="blog-details">
                         <div class="thumbnail" data-aos="fade-up">
-                            <img src="assetsUserSiteUserSite/images/blog/blog-details/blog-details.jpg" alt="Blog Image">
+                            <img src="assetsUserSite/images/blog/blog-details/blog-details.jpg" alt="Blog Image">
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="col-lg-8 m-auto" data-aos="fade-up" data-aos-delay="300">
-                                    <h3 class="title">Philosophy As A Science</h3>
-                                    <div class="desc mb-xl-14 mb-10">
-                                        <p>During your life you will probably meet some people who seem like they may be the
-                                            one, or that they are close, but still have the feeling that something else is
-                                            missing. My advice is that if you are not happy, because something seems like it
-                                            is missing, then it usually is not right.</p>
-
-                                        <p>Before I found my special someone, I was in a relationship for over 10 years, and
-                                            I thought everything was great, until I started to seriously consider getting
-                                            married. Then I noticed that we had so little in common and in reality wanted so
-                                            many different things out of life and one day we both realized there was much
-                                            about each of us that we both wanted from someone, but it was not us that we
-                                            wanted.</p>
-                                    </div>
-                                    <h3 class="title">Peace On Earth A Wonderful Wish But No Way</h3>
-                                    <div class="desc mb-xl-16 mb-10">
-                                        <p>Then one day I decided I had enough of trying to go to clubs and bars to meet
-                                            people. I was sick and tired of trying to find someone in the time it takes to
-                                            finish a drink. It always seemed the ladies I would meet were all wrong for me,
-                                            or they seemed great after talking to them for 5 minutes but they seemed to have
-                                            no interest in me.</p>
-
-                                        <p>Before I found my special someone, I was in a relationship for over 10 years, and
-                                            I thought everything was great, until I started to seriously consider getting
-                                            married. Then I noticed that we had so little in common and in reality wanted so
-                                            many different things out of life and one day we both realized there was much
-                                            about each of us that we both wanted from someone, but it was not us that we
-                                            wanted.</p>
-                                    </div>
+                                    {!! $data->content !!}
                                 </div>
                             </div>
-                            <div class="thumbnail mb-xl-10 mb-6" data-aos="fade-up" data-aos-delay="600">
-                                <img src="assetsUserSite/images/blog/blog-details/blog-details-2.jpg" alt="Blog Image">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8 m-auto" data-aos="fade-up" data-aos-delay="900">
-                                    <div class="desc">
-                                        <p>Then one day I decided I had enough of trying to go to clubs and bars to meet
-                                            people. I was sick and tired of trying to find someone in the time it takes to
-                                            finish a drink. It always seemed the ladies I would meet were all wrong for me,
-                                            or they seemed great after talking to them for 5 minutes but they seemed to have
-                                            no interest in me.</p>
 
-                                        <p>Before I found my special someone, I was in a relationship for over 10 years, and
-                                            I thought everything was great, until I started to seriously consider getting
-                                            married. Then I noticed that we had so little in common and in reality wanted so
-                                            many different things out of life and one day we both realized there was much
-                                            about each of us that we both wanted from someone, but it was not us that we
-                                            wanted.</p>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-lg-8 m-auto" data-aos="fade-up" data-aos-delay="1200">
                                     <div class="row justify-content-between align-items-center mt-10">
                                         <div class="col-auto">
-                                            <div class="entry-post-tags">
+                                            {{-- <div class="entry-post-tags">
                                                 <div class="tag">
                                                     <a href="#">Gym, </a>
                                                     <a href="#">Fitness, </a>
                                                     <a href="#">Healthy, </a>
                                                     <a href="#">Body Build</a>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="col-auto">
                                             <div class="post-share">
                                                 <span class="label">Share with</span>
                                                 <div class="media">
-                                                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#" class="icon"><i class="fab fa-youtube"></i></a>
-                                                    <a href="#" class="icon"><i class="fab fa-dribbble"></i></a>
+                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                            class="fab fa-facebook-f"></i></a>
+                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                            class="fab fa-twitter"></i></a>
+                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                            class="fab fa-youtube"></i></a>
+                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                            class="fab fa-dribbble"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,7 +59,7 @@
                     </div>
                     <!-- Blog End -->
 
-                    <div class="comment-list-wrapper" data-aos="fade-up">
+                    {{-- <div class="comment-list-wrapper" data-aos="fade-up">
 
                         <div class="row">
                             <div class="col-lg-10 m-auto">
@@ -201,19 +164,19 @@
                                 </ol>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="comment-form-wrap" data-aos="fade-up">
                         <div class="row">
                             <div class="col-lg-10 m-auto">
                                 <div class="comment-respond">
-                                    <h3 class="title">Leave A Comment</h3>
-                                    <p class="comment-notes"><span id="email-notes">Your email address will not be
-                                            published. Required fields are marked <span class="required">*</span></p>
+                                    <h3 class="title">Để lại bình luận</h3>
+                                    <p class="comment-notes"><span id="email-notes">Địa chỉ email của bạn sẽ không được công
+                                            bố. Các trường bắt buộc được đánh dấu *<span class="required">*</span></p>
                                     <form action="#" method="post">
                                         <div class="row">
                                             <div class="col-md-4 col-12 mb-6">
-                                                <input type="text" placeholder="Your Name *" name="name">
+                                                <input type="text" placeholder="Tên Bạn*" name="name">
                                             </div>
                                             <div class="col-md-4 col-12 mb-6">
                                                 <input type="email" placeholder="Email *" name="email">
@@ -222,19 +185,20 @@
                                                 <input type="text" placeholder="Website" name="website">
                                             </div>
                                             <div class="col-12 mb-6">
-                                                <textarea name="message" placeholder="Your Comment"></textarea>
+                                                <textarea name="message" placeholder="Bình luận của bạn"></textarea>
                                             </div>
                                             <div class="col-12">
                                                 <p class="comment-form-cookies-consent justify-content-start text-left">
                                                     <input id="comment-cookies-consent" name="comment-cookies-consent"
                                                         type="checkbox" value="yes">
-                                                    <label for="comment-cookies-consent">Save my name, email, and website in
-                                                        this browser for the next time I comment.</label>
+                                                    <label for="comment-cookies-consent">Lưu tên, email và trang web của tôi
+                                                        trong trình duyệt này cho lần bình luận tiếp theo của tôi.</label>
                                                 </p>
                                             </div>
                                             <div class="col-12 text-left">
                                                 <button
-                                                    class="btn btn-primary btn-hover-secondary btn-width-180 btn-height-60">Submit</button>
+                                                    class="btn btn-primary btn-hover-secondary btn-width-180 btn-height-60">Gửi
+                                                    đi</button>
                                             </div>
                                         </div>
                                     </form>

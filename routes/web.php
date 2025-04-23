@@ -28,7 +28,7 @@ Route::group(['prefix' => '/'], function () {
 
         Route::get('/shop','shop')->name('shop');
 
-        Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
+        // Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
         Route::get('/blogs','blogs')->name('blogs');
         Route::get('/services','services')->name('services');
     });

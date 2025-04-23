@@ -1,10 +1,9 @@
 @extends('front.layout.index')
 @section('content')
-    <!-- Page Title Section Start -->
-    <div class="page-title-section section" data-bg-image="assetsUserSite/images/bg/breadcrumb-shop.jpg">
+    <div class="page-title-section section"  data-bg-image="assetsUsersite/images/bg/breadcrumb-shop.jpg">
         <div class="page-title pt-lg-10 pt-10">
             <div class="container">
-                <h1 class="title">{{ $title }}</h1>
+                <h1 class="title">{{ $title ?? "DCN Media Sản Phẩm"}}</h1>
             </div>
         </div>
     </div>
@@ -18,7 +17,7 @@
                     <div class="single-product-image">
                         <img src="{{ $data['image']}}" alt="gym">
                         <div class="product-badges">
-                            <span class="onsale">{{ $data['discount']}}</span>
+                            <span class="onsale">{{ $data['discount'] ?? 5}} %</span>
                         </div>
                     </div>
                 </div>
@@ -26,8 +25,8 @@
                     <div class="single-product-content">
                         <h3 class="title">Linen chino Bermuda shorts</h3>
                         <span class="prices">
-                            <span class="price-new">${{ $data['price']}}</span>
-                            <span class="price-old">${{ $data['original_price']}}</span>
+                            <span class="price-new">{{ number_format($data['price'])}} VNĐ</span>
+                            <span class="price-old">{{ number_format($data['price'] + ($data['price']/100*($data['discount'] ?? 5)))}} VNĐ</span>
                         </span>
                         <div class="product-ratings">
                             <span class="star-rating">
@@ -37,30 +36,30 @@
                                 customer reviews)</a>
                         </div>
                         <div class="product-description">
-                            <p>Learn clear and concise Search Engine Optimisation (SEO) strategies to boost your website’s
-                                search ranking on Google, Bing, and Yahoo in 2020, regardless of your prior experience. Have
-                                you ever considered why your online business isn’t sitting at the number one spot on Google,
-                                or even on the first page of results? Now is the time to discover why SEO is one of your
-                                greatest allies in generating additional traffic and conversions in 2020.</p>
+                            <p>{!! $data['sub_description'] !!}</p>
                         </div>
                         <div class="quantity-button-wrapper">
                             <div class="quantity">
                                 <label>Quantity</label>
                                 <input type="number" value="1" min="1">
                             </div>
-                            <p class="stock in-stock">99 in stock</p>
+                            <p class="stock in-stock">({{ $data['amount']}})Luôn có hàng</p>
                         </div>
                         <div class="product-action">
-                            <button class="btn btn-primary btn-hover-secondary">Add to cart</button>
-                            <button class="btn btn-wishlist btn-box">
+                            <a href="https://www.facebook.com/Bell6393" target="_blank">
+                                <button class="btn btn-primary btn-hover-secondary">Liên hệ</button>
+                            </a>
+                            {{-- <button class="btn btn-wishlist btn-box">
                                 <i class="fal fa-heart"></i>
-                            </button>
-                            <button class="btn btn-compare btn-box">
-                                <i class="fal fa-random"></i>
-                            </button>
+                            </button> --}}
+                            <a href="https://www.facebook.com/Bell6393" target="_blank">
+                                <button class="btn btn-compare btn-box">
+                                    <i class="fal fa-random"></i>
+                                </button>
+                            </a>
                         </div>
 
-                        <div class="product-meta">
+                        {{-- <div class="product-meta">
                             <div class="meta-item">
                                 <h6>Sku:</h6>
                                 <div class="meta-content">
@@ -82,29 +81,29 @@
                                     <a href="#" rel="tag">seo</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="entry-product-share">
                             <h6>Share:</h6>
                             <div class="author-social-networks">
                                 <div class="inner">
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Facebook" href="#"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Facebook" href="https://www.facebook.com/Bell6393"
                                         target="_blank">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Twitter" href="#"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Twitter" href="https://www.facebook.com/Bell6393"
                                         target="_blank">
                                         <i class="fab fa-twitter"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Linkedin" href="#"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Linkedin" href="https://www.facebook.com/Bell6393"
                                         target="_blank">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Tumblr" href="#"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Tumblr" href="https://www.facebook.com/Bell6393"
                                         target="_blank">
                                         <i class="fab fa-tumblr-square"></i>
                                     </a>
@@ -127,31 +126,21 @@
                         <li>
                             <a class="active" data-toggle="tab" href="#tab-description">Description</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a data-toggle="tab" href="#tab-reviews">Reviews (2)</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="tab-content product-infor-tab-content" data-aos="fade-up" data-aos-delay="300">
                         <div class="tab-pane fade show active" id="tab-description">
                             <div class="row">
                                 <div class="offset-lg-2 col-lg-8">
                                     <div class="description-list">
-                                        <ul>
-                                            <li>How to get your online business to appear on the first page of search
-                                                results;</li>
-                                            <li>The four pillars of SEO that you must respect to make your online business
-                                                success;</li>
-                                            <li>How to carry out a full SEO audit on your website;</li>
-                                            <li>How to select the right keywords for your business that will generate
-                                                traffic to your site;</li>
-                                            <li>Top tips for the best SEO practices in 2020;</li>
-                                            <li>How to avoid getting blacklisted and penalized.</li>
-                                        </ul>
+                                        {!! $data['description'] !!}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab-reviews">
+                        {{-- <div class="tab-pane fade" id="tab-reviews">
                             <div class="row">
                                 <div class="col-lg-8 offset-lg-2">
                                     <div class="comment-list-wrapper review-list-wrapper">
@@ -271,7 +260,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

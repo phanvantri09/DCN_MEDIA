@@ -33,11 +33,14 @@ class Product extends Model
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'price' => number_format($discountedPrice, 2),
+            'price' => $discountedPrice,
             'original_price' => $hasDiscount ? number_format($this->price, 2) : null,
             'discount' => $this->discount,
             'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($this->image),
             'url' => route('product.detail', ['id' => $this->id]),
+            'sub_description' => $this->sub_description,
+            'description' => $this->description,
+            'amount' => $this->amount,
         ];
     }
 }
