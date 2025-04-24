@@ -48,7 +48,17 @@ class HomeController extends Controller
     public function shop(Request $request) : View
     {
         $data = $this->productRepository->all();
-        // dd($data);
-        return view('front.shop.index', compact(['data']));
+        return vie
+        ('front.shop.index', compact(['data']));
+    }
+
+    public function about(Request $request) : View
+    {
+        return view('front.about.index', compact([]));
+    }
+
+    public function contact(Request $request) : View
+    {
+        return view('front.contact.index', compact([]));
     }
 }

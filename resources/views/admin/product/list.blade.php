@@ -27,7 +27,7 @@
                                 <th>Tiêu đề</th>
                                 <th>Giới thiệu</th>
                                 <th>Số lượng</th>
-                                <th>Giá</th>
+                                <th>Giá (discount)</th>
                                 <th>Ảnh </th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
@@ -42,7 +42,7 @@
                                         {{ $item->sub_description ?? '' }}
                                     </td>
                                     <td>{{ $item->amount }}</td>
-                                    <td>{{ $item->price }}</td>
+                                    <td>{{ $item->price }} (<b style="color: red">{{ $item->discount }}%</b>)</td>
                                     <td><img width="180px" height="auto"
                                             src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->image) }}"
                                             alt=""></td>

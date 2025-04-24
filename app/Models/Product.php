@@ -37,7 +37,7 @@ class Product extends Model
             'original_price' => $hasDiscount ? number_format($this->price, 2) : null,
             'discount' => $this->discount,
             'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($this->image),
-            'url' => route('product.detail', ['id' => $this->id]),
+            'url' => route('products.detail', ['id' => $this->id]),
             'sub_description' => $this->sub_description,
             'description' => $this->description,
             'amount' => $this->amount,

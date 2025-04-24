@@ -78,14 +78,13 @@
                 <!-- Shop Top Bar End -->
             </div>
         </div> --}}
-        <h1 class="text-center">Sản phẩm của chúng tôi</h1>
         <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 mb-n10">
             @foreach ($data as $item)
                 <div class="col mb-10" data-aos="fade-up">
                     <!--  Single Grid product Start -->
                     <div class="single-grid-product">
                         <div class="product-image">
-                            <a href="{{ route('product.detail', ['id'=>$item->id]) }}">
+                            <a href="{{ route('products.detail', ['id'=>$item->id]) }}">
                                 <img src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->image) }}" class="w-100" alt="">
                             </a>
                             {{-- <div class="product-action">
@@ -106,8 +105,8 @@
                     <!--  Single Grid product End -->
                 </div>
             @endforeach
-            
-        
+
+
         </div>
         {{-- <div class="row" data-aos="fade-up">
             <div class="col-12 mt-xl-20 mt-10 text-center">

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('id_category')->nullable(false)->default(1);  // 1 thu âm, 2 quay chụp
             $table->string('name');
-            $table->string('sub_description')->nullable()->default(null);
+            $table->text('sub_description')->nullable()->default(null);
             $table->integer('amount')->nullable(false)->default(0);
-            $table->string('description');
+            $table->longText('description');
             $table->integer('price')->nullable(false)->default(0);
             $table->integer('discount')->nullable();
             $table->string('image');

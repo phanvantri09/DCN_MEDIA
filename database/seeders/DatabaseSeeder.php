@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,10 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'dcnmedia43@gmail.com',
-            'password' => Hash::make('Noicomdien123'),
+        $this->call([
+            RoutesSeeder::class,
+            CreateProduct::class,
+            CategorySeed::class, // Giữ nguyên nếu file là CategorySeed.php
+            UserSeeder::class,
         ]);
     }
 }

@@ -24,7 +24,7 @@ class RQAdd extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|unique:category_products,title',
             // 'img' => 'required',
             // 'content_pre' => 'required',
             // 'content' => 'required',
@@ -34,6 +34,7 @@ class RQAdd extends FormRequest
     {
         return [
             'title.required' => 'Vui lòng nhập',
+            'title.unique' => 'Đã tồn tại',
             // 'img.required' => 'Vui lòng nhập',
             // 'content_pre.required' => 'Vui lòng nhập',
             // 'content.required' => 'Vui lòng nhập',

@@ -24,9 +24,9 @@
                                     <a href="index.html"><span class="menu-text">Trang chủ</span></a>
                                 </li>
                                 <li class="has-children">
-                                    <a href="shop.html"><span class="menu-text">Cửa hàng</span></a>
-                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
-                                    <ul class="sub-menu">
+                                    <a href="{{ route('products.list') }}"><span class="menu-text">Cửa hàng</span></a>
+                                    {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span> --}}
+                                    {{-- <ul class="sub-menu">
                                         <li><a href="shop.html"><span class="menu-text">Shop</span></a></li>
                                         <li><a href="product-details.html"><span class="menu-text">Product
                                                     Details</span></a></li>
@@ -36,17 +36,17 @@
                                         </li>
                                         <li><a href="checkout.html"><span class="menu-text">Checkout</span></a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                                 <li class="has-children">
-                                    <a href="blog-grid.html"><span class="menu-text">Bài viết</span></a>
-                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                    <a href="{{ route('blogs') }}"><span class="menu-text">Bài viết</span></a>
+                                    {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                                     <ul class="sub-menu">
                                         <li><a href="blog-grid.html"><span class="menu-text">Blog
                                                     Grid</span></a></li>
                                         <li><a href="blog-details.html"><span class="menu-text">Blog
                                                     Details</span></a></li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                             </ul>
                         </nav>
@@ -71,11 +71,11 @@
                     <!-- Header Cart Start -->
                     <div class="header-cart">
 
-                        <a class="header-cart-btn" href="shopping-cart.html"><span class="cart-count">2</span><i
-                                class="far fa-shopping-cart"></i></a>
+                        {{-- <a class="header-cart-btn" href="shopping-cart.html"><span class="cart-count">2</span><i
+                                class="far fa-shopping-cart"></i></a> --}}
 
                         <!-- Header Mini Cart Start -->
-                        <div class="header-mini-cart">
+                        {{-- <div class="header-mini-cart">
                             <div class="inner">
 
                                 <!-- Header Mini Cart Product Start -->
@@ -116,7 +116,7 @@
                                 </div>
                                 <!-- Header Mini Cart Footer End -->
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Header Mini Cart End -->
                     </div>
                     <!-- Header Cart End -->

@@ -22,7 +22,7 @@
                                 <th>Tiêu đề</th>
                                 <th>Giới thiệu</th>
                                 <th>Số lượng</th>
-                                <th>Giá</th>
+                                <th>Giá (discount)</th>
                                 <th>Ảnh </th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
@@ -38,7 +38,7 @@
 
                                     </td>
                                     <td><?php echo e($item->amount); ?></td>
-                                    <td><?php echo e($item->price); ?></td>
+                                    <td><?php echo e($item->price); ?> (<b style="color: red"><?php echo e($item->discount); ?>%</b>)</td>
                                     <td><img width="180px" height="auto"
                                             src="<?php echo e(\App\Helpers\ConstCommon::getLinkImageToStorage($item->image)); ?>"
                                             alt=""></td>

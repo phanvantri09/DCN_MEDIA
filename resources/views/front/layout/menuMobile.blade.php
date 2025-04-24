@@ -15,21 +15,21 @@
             <nav class="site-mobile-menu">
                 <ul>
                     <li>
-                        <a href="index.html"><span class="menu-text">Home</span></a>
+                        <a href="{{ route('index') }}"><span class="menu-text">Trang Chủ</span></a>
                     </li>
                     <li class="has-children">
-                        <a href="about.html"><span class="menu-text">Pages</span></a>
-                        <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                        <a href="{{ route('products.list') }}"><span class="menu-text">Cửa hàng</span></a>
+                        {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                         <ul class="sub-menu">
                             <li><a href="about.html"><span class="menu-text">About</span></a></li>
                             <li><a href="team.html"><span class="menu-text">Our Team</span></a></li>
                             <li><a href="contact.html"><span class="menu-text">Contact</span></a></li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     <li>
-                        <a href="our-program.html"><span class="menu-text">Our Program</span></a>
+                        <a href="{{ route('blogs') }}"><span class="menu-text">Bài viết</span></a>
                     </li>
-                    <li class="has-children">
+                    {{-- <li class="has-children">
                         <a href="shop.html"><span class="menu-text">Shop</span></a>
                         <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                         <ul class="sub-menu">
@@ -51,7 +51,7 @@
                     </li>
                     <li>
                         <a href="event.html"><span class="menu-text">Event</span></a>
-                    </li>
+                    </li> --}}
                 </ul>
             </nav>
         </div>

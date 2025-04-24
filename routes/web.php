@@ -31,16 +31,18 @@ Route::group(['prefix' => '/'], function () {
         // Route::get('/blogs/{id}','blogsItem')->name('blogsItem');
         Route::get('/blogs','blogs')->name('blogs');
         Route::get('/services','services')->name('services');
+        Route::get('/about','about')->name('about');
+        Route::get('/contact','contact')->name('contact');
     });
 
-    Route::group(['prefix' => 'product', 'as' =>'product.'], function () {
+    Route::group(['prefix' => 'product', 'as' =>'products.'], function () {
         Route::controller(FrontProductController::class)->group(function () {
             Route::get('/','list')->name('list');
             Route::get('/load-more','loadProducts')->name('load');
             Route::get('/{id}','detail')->name('detail');
         });
     });
-    
+
 });
 
 Route::controller(AuthLoginController::class)->group(function () {

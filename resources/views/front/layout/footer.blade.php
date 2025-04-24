@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-5 col-sm-12 col-12 col-12 mb-6">
                 <div class="footer-widget">
                     <div class="footer-logo">
-                        <a href="https://www.facebook.com/Bell6393"><img src="assetsUserSite/images/logo/footer-logo.png" alt="Logo"></a>
+                        <a href="https://www.facebook.com/Bell6393"><img src="" alt="Logo"></a>
                     </div>
                     <div class="footer-widget-content">
                         <div class="footer-social-inline">
@@ -43,7 +43,7 @@
             <!-- Footer Widget End -->
 
             <!-- Footer Widget Start -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-6">
+            {{-- <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-6">
                 <div class="footer-widget">
                     <div class="footer-widget-content">
                         <div class="ft-instagram-list">
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Footer Widget End -->
 
         </div>

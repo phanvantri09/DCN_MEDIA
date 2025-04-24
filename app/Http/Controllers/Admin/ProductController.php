@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function add()
     {
         $dataCategory = $this->categoryRepository->all();
-        $title = 'product Add';
+        $title = 'Thêm sản phẩm';
         return view('admin.product.add', compact(['title', 'dataCategory']));
     }
     public function addPost(RQAdd $request)

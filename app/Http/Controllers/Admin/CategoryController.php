@@ -20,7 +20,7 @@ class CategoryController extends Controller
         return view('admin.category.list', compact(['data', 'title']));
     }
     public function add(){
-        $title = 'Category Add';
+        $title = 'Thêm loại sản phẩm';
         return view('admin.category.add', compact(['title']));
     }
     public function addPost(RQAdd $request){

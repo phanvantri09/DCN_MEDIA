@@ -22,17 +22,17 @@
                         </div>
                         <div class="shop-topbar-right shop-tab-flex">
                             <div class="short-by">
-                                <a>Sort By</a>
+                                <a>Sắp xếp</a>
                                 <ul class="sort-by-dropdown">
-                                    <li class="active"><a class="sort-option" data-sort="default">Default sorting</a></li>
-                                    <li><a class="sort-option" data-sort="price_low">Sort by price: low to high</a></li>
-                                    <li><a class="sort-option" data-sort="price_high">Sort by price: high to low</a></li>
+                                    <li class="active"><a class="sort-option" data-sort="default">Mặc định</a></li>
+                                    <li><a class="sort-option" data-sort="price_low">Thấp đến Cao</a></li>
+                                    <li><a class="sort-option" data-sort="price_high">Cao đến Thấp</a></li>
                                 </ul>
                             </div>
                             <div class="filter short-by">
-                                <a style="border-top:0 ;">Filter</a>
+                                <a style="border-top:0 ;">Lọc</a>
                                 <ul class="sort-by-dropdown">
-                                    <li><a class="filter-option" data-filter="all">All Products</a></li>
+                                    <li><a class="filter-option" data-filter="all">Tất cả sản phẩm</a></li>
                                     @foreach ($perPageOptions as $option)
                                         <li><a class="filter-option" data-filter="limit_{{ $option }}"
                                                 class="{{ $currentPerPage == $option ? 'active' : '' }}">{{ $option }} items</a>
@@ -45,7 +45,7 @@
                                 </ul>
                             </div>
                             <div class="filter short-by">
-                                <a style="border-top:0 ;">Category</a>
+                                <a style="border-top:0 ;">Loại</a>
                                 <ul class="sort-by-dropdown">
                                     @foreach (\App\Models\Category::all() as $category)
                                         <li><a class="filter-option"
@@ -182,7 +182,7 @@
             function loadProducts(offset, limit, sort, filter) {
                 console.log('Sending AJAX with Offset:', offset, 'Limit:', limit, 'Total:', total); // Debug
                 $.ajax({
-                    url: "{{ route('product.load') }}",
+                    url: "{{ route('products.load') }}",
                     method: "GET",
                     data: {
                         offset: offset,

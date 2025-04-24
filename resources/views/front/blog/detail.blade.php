@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="post-share">
-                                                <span class="label">Share with</span>
+                                                <span class="label">Chia sẽ</span>
                                                 <div class="media">
                                                     <a href="https://www.facebook.com/Bell6393" class="icon"><i
                                                             class="fab fa-facebook-f"></i></a>

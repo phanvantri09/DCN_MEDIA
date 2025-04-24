@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="single-product-content">
-                        <h3 class="title">Linen chino Bermuda shorts</h3>
+                        <h3 class="title">{{$data['name']}}</h3>
                         <span class="prices">
                             <span class="price-new">{{ number_format($data['price'])}} VNĐ</span>
                             <span class="price-old">{{ number_format($data['price'] + ($data['price']/100*($data['discount'] ?? 5)))}} VNĐ</span>
@@ -40,8 +40,8 @@
                         </div>
                         <div class="quantity-button-wrapper">
                             <div class="quantity">
-                                <label>Quantity</label>
-                                <input type="number" value="1" min="1">
+                                <label>Số lượng</label>
+                                <input type="number" value="{{ $data['amount']}}" min="1">
                             </div>
                             <p class="stock in-stock">({{ $data['amount']}})Luôn có hàng</p>
                         </div>
@@ -84,7 +84,7 @@
                         </div> --}}
 
                         <div class="entry-product-share">
-                            <h6>Share:</h6>
+                            <h6>Chia sẽ:</h6>
                             <div class="author-social-networks">
                                 <div class="inner">
 
@@ -124,7 +124,7 @@
                 <div class="col-12" data-aos="fade-up">
                     <ul class="nav product-info-tab-list justify-content-center">
                         <li>
-                            <a class="active" data-toggle="tab" href="#tab-description">Description</a>
+                            <a class="active" data-toggle="tab" href="#tab-description">Nội Dung chính</a>
                         </li>
                         {{-- <li>
                             <a data-toggle="tab" href="#tab-reviews">Reviews (2)</a>

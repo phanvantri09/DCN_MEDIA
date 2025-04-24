@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable(false)->default('');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable(false);
+            $table->string('tag')->default('Kỹ sư âm thanh');
+            $table->string('image')->nullable(false)->default('');
+            $table->integer('is_admin')->default(1)->comment("1 user, 999 admin");
+            $table->string('password')->nullable(false)->default('');
             $table->timestamps();
         });
     }
