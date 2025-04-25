@@ -1,14 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-    <!-- Page Title Section Start -->
-    <div class="page-title-section section" data-overlay="0.7" data-bg-image="assetsUserSite/images/bg/breadcrumb-about.jpg">
-        <div class="page-title pt-lg-10 pt-10">
-            <div class="container">
-                <h1 class="title">About Us</h1>
-            </div>
-        </div>
-    </div>
-    <!-- Page Title Section End -->
+@include('front.layout.banner')
 
     <!-- Building Fitness Section Start -->
     <div class="section section-fluid section-padding-t180-b210">

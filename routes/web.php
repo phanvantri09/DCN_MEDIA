@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\AuthLoginController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
@@ -110,4 +111,25 @@ Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function (
             Route::get('/show/{id}', 'show')->name('show');
         });
     });
+
+    Route::group(['prefix' => 'banner', 'as' => 'banner.'], function () {
+        Route::controller(BannerController::class)->group(function () {
+            // danh sách
+            Route::get('/', 'list')->name('list');
+
+            // thêm
+            Route::get('/add', 'add')->name('add');
+            Route::post('/add', 'addPost')->name('addPost');
+
+            //sửa
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::post('edit/{id}', 'editPost')->name('editPost');
+            // xóa
+            Route::get('/delete/{id}', 'delete')->name('delete');
+
+            // hiển thị tất cả
+            Route::get('/show/{id}', 'show')->name('show');
+        });
+    });
+
 });

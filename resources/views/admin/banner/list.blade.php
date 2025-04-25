@@ -12,9 +12,9 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         {{-- @isset($title)
-                            {{ $title }}
+                        {{ $title }}
                         @else
-                            Chưa có tiêu đề cho trang này
+                        Chưa có tiêu đề cho trang này
                         @endisset --}}
                     </h3>
                 </div>
@@ -24,8 +24,9 @@
                         <thead>
                             <tr>
                                 <th>stt</th>
+                                <th>Prefix</th>
                                 <th>Tiêu đề</th>
-                                <th>Ảnh </th>
+                                <th>Ảnh</th>
                                 <th>Thời gian tạo </th>
                                 <th></th>
                             </tr>
@@ -34,17 +35,19 @@
                             @foreach ($data as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td><img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img)}}" alt=""></td>
+                                    <td>{{$item->url}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td><img width="180px" height="auto"
+                                            src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->image)}}" alt=""></td>
                                     <td>{{ date(' H:i:s - d/m/Y', strtotime($item->created_at))}}</td>
                                     <td>
-                                        <a href="{{ route('banner.show', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('banner.show', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-book-open"></i> Xem
                                         </a>
-                                        <a  href="{{ route('banner.edit', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('banner.edit', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
-                                        <a href="{{ route('banner.delete', ['id'=>$item->id]) }}" class="btn btn-app">
+                                        <a href="{{ route('banner.delete', ['id' => $item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-trash-alt"></i>Xóa
                                         </a>
 
@@ -86,7 +89,7 @@
     <script src="../../admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="../../admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,

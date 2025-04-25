@@ -23,10 +23,25 @@
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
+                                    <label>Nhập Prefix</label>
+                                    <input type="text" name="url" class="form-control" value="/{{old('url')}}"
+                                        placeholder="Nhập tiêu đề...">
+                                    @error('url')
+                                        <div class="alert alert-danger">{{ $errors->first('title') }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- text input -->
+                                <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Nhập tiêu đề...">
-                                    @error('name')
-                                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                                    <input type="text" name="title" class="form-control" value="{{old('title')}}"
+                                        placeholder="Nhập tiêu đề...">
+                                    @error('title')
+                                        <div class="alert alert-danger">{{ $errors->first('title') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -36,47 +51,14 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Ảnh đại diện</label>
-                                    <input type="file" name="img" class="form-control" value="{{old('img')}}" placeholder="Nhập tiêu đề...">
+                                    <input type="file" name="img" class="form-control" value="{{old('img')}}"
+                                        placeholder="Nhập tiêu đề...">
                                     @error('img')
-                                    <div class="alert alert-danger">{{ $errors->first('img') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('img') }}</div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <div class="row">
-                            <div class="col-sm-6">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Loại</label>
-                                    <select name="id_category" class="form-control">
-                                        @foreach ($category as $key => $item)
-                                            <option value="{{ $item->id }}"> {{ $item->title }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('id_category')
-                                    <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="custom-file">
-                                        <input onchange="readURL(this)" name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>
-                                    </div>
-                                    @error('image')
-                                    <div class="alert alert-danger">{{ $errors->first('image') }}</div>
-                                    @enderror
-                                </div>
-                                <div class="d-flex flex-row mt-4">
-                                    <img id="img-preview" style="width: 200px;height: 200px; object-fit: cover;" class="rounded" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png">
-                                </div>
-                            </div>
-                        </div> --}}
-
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Lưu lại</button>
                         </div>
@@ -97,7 +79,7 @@
         $(function () {
             // Summernote
             $('#summernoteDescription').summernote();
-            
+
             $('#summernotecontent_pre').summernote();
         })
 

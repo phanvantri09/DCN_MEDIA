@@ -1,14 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-    <!-- Page Title Section Start -->
-    <div class="page-title-section section" data-bg-image="assetsUserSite/images/bg/breadcrumb-shop.jpg">
-        <div class="page-title pt-lg-10 pt-10">
-            <div class="container">
-                <h1 class="title">{{ $title }}</h1>
-            </div>
-        </div>
-    </div>
-    <!-- Page Title Section End -->
+@include('front.layout.banner')
 
     <!-- Shop Page Section Start -->
     <div class="section section-padding-t150-b130 section-fluid">

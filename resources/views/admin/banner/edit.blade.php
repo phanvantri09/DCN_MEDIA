@@ -17,16 +17,32 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('banner.editPost', ['id'=>$id]) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('banner.editPost', ['id' => $id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
+                                    <label>Prefix</label>
+                                    <input type="text" name="url" class="form-control" value="{{old('url', $data->url)}}"
+                                        placeholder="Nhập url...">
+                                    @error('url')
+                                        <div class="alert alert-danger">{{ $errors->first('url') }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- text input -->
+                                <div class="form-group">
                                     <label>Tiêu đề</label>
-                                    <input type="text" name="name" class="form-control" value="{{old('name', $data->name)}}" placeholder="Nhập tiêu đề...">
-                                    @error('name')
-                                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                                    <input type="text" name="title" class="form-control"
+                                        value="{{old('title', $data->title)}}" placeholder="Nhập tiêu đề...">
+                                    @error('title')
+                                        <div class="alert alert-danger">{{ $errors->first('title') }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -35,72 +51,16 @@
                             <div class="col-sm-12">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Ảnh đại diện</label>
-                                    <input type="file" name="img" class="form-control">
-                                    @error('img')
-                                    <div class="alert alert-danger">{{ $errors->first('img') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <img width="180px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->img)}}" alt="">
-                        </div>
-                        {{-- <div class="row">
-                            <div class="col-sm-6">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Loại</label>
-                                    <select name="id_category" class="form-control">
-                                        @foreach ($category as $key => $item)
-                                            <option value="{{ $item->id }}"> {{ $item->title }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('id_category')
-                                    <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Ảnh</label>
-                                    <div class="custom-file">
-                                        <input onchange="readURL(this)" name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>
-                                    </div>
+                                    <label>Banner</label>
+                                    <input type="file" name="image" class="form-control">
                                     @error('image')
-                                    <div class="alert alert-danger">{{ $errors->first('image') }}</div>
-                                    @enderror
-                                </div>
-                                <div class="d-flex flex-row mt-4">
-                                    <img id="img-preview" style="width: 200px;height: 200px; object-fit: cover;" class="rounded" src="https://ami-sni.com/wp-content/themes/consultix/images/no-image-found-360x250.png">
-                                </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="row">
-                            <div class="col-sm-12">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Thông tim xem trước</label>
-                                    <textarea name="content_pre" rows="3" id="summernotecontent_pre">{{old('content_pre', $data->content_pre)}}</textarea>
-                                    @error('content_pre')
-                                    <div class="alert alert-danger">{{ $errors->first('content_pre') }}</div>
+                                        <div class="alert alert-danger">{{ $errors->first('image') }}</div>
                                     @enderror
                                 </div>
                             </div>
+                            <img width="180px" height="auto"
+                                src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->image)}}" alt="">
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- select -->
-                                <div class="form-group">
-                                    <label>Nội dung chính</label>
-                                    <textarea name="content" rows="3" id="summernoteDescription">{{old('content', $data->content)}}</textarea>
-                                    @error('content')
-                                    <div class="alert alert-danger">{{ $errors->first('content') }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div> --}}
-
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Lưu lại</button>
                         </div>
@@ -121,7 +81,7 @@
         $(function () {
             // Summernote
             $('#summernoteDescription').summernote();
-            
+
             $('#summernotecontent_pre').summernote();
         })
 
