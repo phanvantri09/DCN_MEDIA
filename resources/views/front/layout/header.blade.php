@@ -7,9 +7,9 @@
                 <!-- Header Logo Start -->
                 <div class="col-xl-2 col-auto">
                     <div class="header-logo">
-                        <a href="index.html">
-                            <img class="dark-logo" src="assets/images/logo/logo.png" alt="Fitness Logo">
-                            <img class="light-logo" src="assets/images/logo/logo.png" alt="Fitness Logo">
+                        <a href="{{ route('index') }}">
+                            <img class="dark-logo" src="assetsUsersite/images/logo/logo.jpg" alt="DCN Media Logo">
+                            <img class="light-logo" src="assetsUsersite/images/logo/logo.jpg" alt="DCN Media Logo">
                         </a>
                     </div>
                 </div>
@@ -21,9 +21,10 @@
                         <nav class="site-main-menu">
                             <ul>
                                 <li>
-                                    <a href="index.html"><span class="menu-text">Trang chủ</span></a>
+                                    <a href="{{ route('index') }}"><span class="menu-text">Trang chủ</span></a>
                                 </li>
-                                <li class="has-children">
+                                {{-- <li class="has-children"> --}}
+                                <li>
                                     <a href="{{ route('products.list') }}"><span class="menu-text">Cửa hàng</span></a>
                                     {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span> --}}
                                     {{-- <ul class="sub-menu">
@@ -38,7 +39,8 @@
                                         </li>
                                     </ul> --}}
                                 </li>
-                                <li class="has-children">
+                                {{-- <li class="has-children"> --}}
+                                <li>
                                     <a href="{{ route('blogs') }}"><span class="menu-text">Bài viết</span></a>
                                     {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
                                     <ul class="sub-menu">
@@ -47,6 +49,9 @@
                                         <li><a href="blog-details.html"><span class="menu-text">Blog
                                                     Details</span></a></li>
                                     </ul> --}}
+                                </li>
+                                <li>
+                                    <a href="{{ route('contact') }}"><span class="menu-text">Liên hệ</span></a>
                                 </li>
                             </ul>
                         </nav>

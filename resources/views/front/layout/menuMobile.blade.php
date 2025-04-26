@@ -1,8 +1,20 @@
+<style>
+    .logo-mobie {
+        max-width: 70px !important;
+    }
+
+    @media only screen and (max-width: 479px) {
+        .logo-mobie {
+            max-width: 40px !important;
+        }
+    }
+</style>
 <div id="site-main-mobile-menu" class="site-main-mobile-menu">
     <div class="site-main-mobile-menu-inner">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <a href="index.html"><img src="assets/images/logo/logo.png" alt=""></a>
+                <a href="{{ route('index') }}"><img class="logo-mobie" src="assetsUsersite/images/logo/logo.jpg"
+                        alt=""></a>
             </div>
             <div class="mobile-menu-close">
                 <button class="toggle">
@@ -28,6 +40,9 @@
                     </li>
                     <li>
                         <a href="{{ route('blogs') }}"><span class="menu-text">Bài viết</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('contact') }}"><span class="menu-text">Liên hệ</span></a>
                     </li>
                     {{-- <li class="has-children">
                         <a href="shop.html"><span class="menu-text">Shop</span></a>

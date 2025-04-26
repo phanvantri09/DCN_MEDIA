@@ -1,13 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-    <!-- Page Title Section Start -->
-    <div class="page-title-section section" data-bg-image="assetsUserSite/images/bg/breadcrumb-blog.jpg">
-        <div class="page-title pt-lg-10 pt-10">
-            <div class="container">
-                <h1 class="title">GYM BLOG</h1>
-            </div>
-        </div>
-    </div>
+@include('front.layout.banner')
     <!-- Page Title Section End -->
 
     <!-- Blog Grid Section Start -->

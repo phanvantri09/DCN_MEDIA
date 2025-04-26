@@ -338,7 +338,7 @@
                     <!-- Single Coach Start -->
                     <div class="single-coach">
                         <div class="thumbnial">
-                            <a class="image" href="#"><img src="assetsUserSite/images/team/team-1.jpg" alt=""></a>
+                            <a class="image" href="#"><img src="assetsUserSite/images/team/avt.jpg" alt=""></a>
                             <div class="inner-block">
                                 <div class="slider-top-right"></div>
                             </div>

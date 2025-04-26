@@ -5,10 +5,10 @@
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     01. Template default CSS
     02. Template Spacing CSS
     03. Elements CSS
@@ -20489,6 +20489,7 @@ svg:not(:root) {
 }
 
 .header-logo a img {
+	max-width: 70px;
   width: 100%;
   padding: 15px 0;
 }

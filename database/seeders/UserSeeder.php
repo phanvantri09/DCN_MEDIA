@@ -20,5 +20,13 @@ class UserSeeder extends Seeder
             'is_admin' => 999,
             'password' => Hash::make('Noicomdien123'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Bell Nguyễn',
+            'email' => 'bellnguyen@gmail.com',
+            'is_admin' => 1,
+            'tag' => 'Kỹ sư âm thanh, hình ảnh',
+            'image' => '',
+        ]);
     }
 }

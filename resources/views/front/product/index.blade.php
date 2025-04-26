@@ -96,7 +96,7 @@
                 <div class="row" data-aos="fade-up">
                     <div class="col-12 mt-xl-20 mt-10 text-center">
                         <a class="shop-load-more-btn" id="load-more" data-offset="{{ count($products) }}"
-                            data-limit="{{ $currentPerPage }}" data-total="{{ $totalProducts }}">Load More <i
+                            data-limit="{{ $currentPerPage }}" data-total="{{ $totalProducts }}">Xem thêm <i
                                 class="fal fa-arrow-down"></i></a>
                     </div>
                 </div>

@@ -43,5 +43,8 @@ class BlogRepository implements BlogRepositoryInterface
     {
         return Blog::where('name',$title)->first();
     }
-    
+    public function newBloghome(){
+        return Blog::orderByDesc('created_at')->limit(2)->get();
+    }
+
 }

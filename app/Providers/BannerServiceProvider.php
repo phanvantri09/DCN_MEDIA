@@ -35,6 +35,7 @@ class BannerServiceProvider extends ServiceProvider
             // Xử lý title và image
             $pageTitle = $routeMatch ? $routeMatch->title : 'DCN - Media';
             $pageImage = '';
+            $pageImage = "assetsUserSite/images/intro/intro.png";
             if ($routeMatch && !empty($routeMatch->image)) {
                 $pageImage = \App\Helpers\ConstCommon::getLinkImageToStorage($routeMatch->image);
             }

@@ -1,12 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-<div class="page-title-section section" data-bg-image="assetsUsersite/images/bg/breadcrumb-contact.jpg">
-    <div class="page-title pt-lg-10 pt-10">
-        <div class="container">
-            <h1 class="title">CONTACT US</h1>
-        </div>
-    </div>
-</div>
+@include('front.layout.banner')
 <!-- Page Title Section End -->
 
 <!-- Contact Us Section Start -->

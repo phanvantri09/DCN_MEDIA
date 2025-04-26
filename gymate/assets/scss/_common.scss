@@ -180,6 +180,15 @@ input[type="submit"] {
 img {
     max-width: 100%;
 }
+.logo-mobie {
+    max-width: 70px !important;
+}
+
+@media only screen and (max-width: 479px) {
+    .logo-mobie {
+        max-width: 40px !important;
+    }
+  }
 
 input,
 textarea {
@@ -289,7 +298,7 @@ $color in $theme-colors {
         bottom: 0;
         left: 0;
         z-index: -1;
-        background: linear-gradient(to right,  rgba(3,15,39,0.7) 0%,rgba(3,15,39,0) 100%); 
+        background: linear-gradient(to right,  rgba(3,15,39,0.7) 0%,rgba(3,15,39,0) 100%);
     }
 }
 
@@ -465,7 +474,7 @@ $color in $theme-colors {
         z-index: 1;
         transition: $transition;
       }
-  
+
       &:hover{
         &:before{
           width: 12px;
@@ -475,8 +484,8 @@ $color in $theme-colors {
         }
       }
   }
-      
-      
+
+
   .swiper-pagination-bullet-active{
       &:before{
         width: 12px;
@@ -486,7 +495,7 @@ $color in $theme-colors {
       }
     }
   }
-  
+
   .swiper-pagination.swiper-pagination-white  {
       & .swiper-pagination-bullet {
           margin: 8px;
@@ -507,7 +516,7 @@ $color in $theme-colors {
           box-shadow: 0 0 9px #ededed;
       }
   }
-  
+
   .swiper-nav-button {
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), visibility 0.1s linear 2s, opacity 0.1s linear 2s;
       background-image: none;
@@ -554,7 +563,7 @@ $color in $theme-colors {
           visibility: visible;
       }
   }
-  
+
   .swiper-nav-button i {
       position: absolute;
       top: 50%;

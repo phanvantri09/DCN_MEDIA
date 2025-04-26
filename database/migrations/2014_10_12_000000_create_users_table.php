@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable(false)->default('');
             $table->string('email')->unique();
-            $table->string('password')->nullable(false);
+            $table->string('password')->nullable(false)->default('');
             $table->string('tag')->default('Kỹ sư âm thanh');
             $table->string('image')->nullable(false)->default('');
             $table->integer('is_admin')->default(1)->comment("1 user, 999 admin");

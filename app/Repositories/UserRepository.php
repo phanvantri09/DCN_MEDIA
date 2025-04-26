@@ -35,4 +35,9 @@ class UserRepository implements UserRepositoryInterface
     public function getAllByType($type){
         return User::where('type', $type)->get();
     }
+
+    public function customer(){
+        return User::where('is_admin', 1)->get();
+    }
+
 }

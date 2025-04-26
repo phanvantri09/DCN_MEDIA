@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Repositories\ProductRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\BlogRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use App\Helpers\ConstCommon;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,15 +17,22 @@ class HomeController extends Controller
     protected $productRepository;
     protected $categoryRepository;
     protected $blogRepository;
-    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository, BlogRepositoryInterface $blogRepository)
+    protected $userRepository;
+    public function __construct(ProductRepositoryInterface $productRepository,
+    CategoryRepositoryInterface $categoryRepository,
+    BlogRepositoryInterface $blogRepository,
+    UserRepositoryInterface $userRepository)
     {
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
         $this->blogRepository = $blogRepository;
+        $this->userRepository = $userRepository;
     }
     public function home() : View
     {
-        return view('front.layout.home');
+        $users = $this->userRepository->customer();
+        $blogs = $this->blogRepository->newBloghome();
+        return view('front.layout.home', compact(['users', 'blogs']));
     }
 
     public function blogs(Request $request) : View

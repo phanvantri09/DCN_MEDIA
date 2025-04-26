@@ -28,13 +28,13 @@ class Product extends Model
     public function formatProductForDisplay()
     {
         $hasDiscount = $this->discount > 0;
-        $discountedPrice = $hasDiscount ? $this->price * (1 - $this->discount / 100) : $this->price;
+        $discountedPrice = $hasDiscount ? $this->price - ($this->price * $this->discount / 100) : $this->price;
 
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'price' => $discountedPrice,
-            'original_price' => $hasDiscount ? number_format($this->price, 2) : null,
+            'price' => number_format($discountedPrice),
+            'original_price' => $hasDiscount ? number_format($this->price) : null,
             'discount' => $this->discount,
             'image' => \App\Helpers\ConstCommon::getLinkImageToStorage($this->image),
             'url' => route('products.detail', ['id' => $this->id]),
