@@ -11,7 +11,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assetsUsersite/images/logo/logo.jpg') }}">
     {{-- <base href="{{ URL::asset('/') }}" target="_top"> --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
 
     <!-- CSS
  ============================================ -->
