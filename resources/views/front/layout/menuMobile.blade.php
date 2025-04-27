@@ -13,7 +13,7 @@
     <div class="site-main-mobile-menu-inner">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <a href="{{ route('index') }}"><img class="logo-mobie" src="{{ asset('assetsUsersite/logo.jpg') }}"
+                <a href="{{ route('index') }}"><img class="logo-mobie" src="{{ asset('storage/images/logo/logo.jpg') }}"
                         alt=""></a>
             </div>
             <div class="mobile-menu-close">

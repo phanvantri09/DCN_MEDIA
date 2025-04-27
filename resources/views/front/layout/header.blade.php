@@ -8,8 +8,8 @@
                 <div class="col-xl-2 col-auto">
                     <div class="header-logo">
                         <a href="{{ route('index') }}">
-                            <img class="dark-logo" src="{{ asset('assetsUsersite/logo.jpg') }}" alt="DCN Media Logo">
-                            <img class="light-logo" src="{{ asset('assetsUsersite/logo.jpg') }}" alt="DCN Media Logo">
+                            <img class="dark-logo" src="{{ asset('storage/images/logo/logo.jpg') }}" alt="DCN Media Logo">
+                            <img class="light-logo" src="{{ asset('storage/images/logo/logo.jpg') }}" alt="DCN Media Logo">
                         </a>
                     </div>
                 </div>
