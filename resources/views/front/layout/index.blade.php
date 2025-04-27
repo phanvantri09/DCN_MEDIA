@@ -8,6 +8,8 @@
     <meta name="description" content="Try out Gymate Gym Fitness Bootstrap 5 Template today because this awesome fitness related website template comes completely free of any cost.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{asset('assetsUsersite/images/logo/logo.jpg')}}">
+    <base href="{{ URL::asset('/') }}" target="_top">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
 
     <!-- CSS
@@ -41,7 +43,7 @@
 
         @yield('content')
 
-        @include('front.layout.footer')    
+        @include('front.layout.footer')
 
         <!-- Scroll Top Start -->
         <a href="#" class="scroll-top" id="scroll-top">
