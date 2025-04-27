@@ -9,7 +9,7 @@
     <meta name="description" content="Thu âm và quay phim chụp hình Hồ Chí Minh">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assetsUsersite/images/logo/logo.jpg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assetsUsersite/logo.jpg') }}">
     {{-- <base href="{{ URL::asset('/') }}" target="_top"> --}}
 
     <!-- CSS
