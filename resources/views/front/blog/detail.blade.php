@@ -41,13 +41,13 @@
                                             <div class="post-share">
                                                 <span class="label">Chia sẽ</span>
                                                 <div class="media">
-                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                    <a href="https://www.facebook.com/dcn.media1163" class="icon"><i
                                                             class="fab fa-facebook-f"></i></a>
-                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                    <a href="https://www.facebook.com/dcn.media1163" class="icon"><i
                                                             class="fab fa-twitter"></i></a>
-                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                    <a href="https://www.facebook.com/dcn.media1163" class="icon"><i
                                                             class="fab fa-youtube"></i></a>
-                                                    <a href="https://www.facebook.com/Bell6393" class="icon"><i
+                                                    <a href="https://www.facebook.com/dcn.media1163" class="icon"><i
                                                             class="fab fa-dribbble"></i></a>
                                                 </div>
                                             </div>

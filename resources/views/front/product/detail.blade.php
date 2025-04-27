@@ -46,13 +46,13 @@
                             <p class="stock in-stock">({{ $data['amount']}})Luôn có hàng</p>
                         </div>
                         <div class="product-action">
-                            <a href="https://www.facebook.com/Bell6393" target="_blank">
+                            <a href="https://www.facebook.com/dcn.media1163" target="_blank">
                                 <button class="btn btn-primary btn-hover-secondary">Liên hệ</button>
                             </a>
                             {{-- <button class="btn btn-wishlist btn-box">
                                 <i class="fal fa-heart"></i>
                             </button> --}}
-                            <a href="https://www.facebook.com/Bell6393" target="_blank">
+                            <a href="https://www.facebook.com/dcn.media1163" target="_blank">
                                 <button class="btn btn-compare btn-box">
                                     <i class="fal fa-random"></i>
                                 </button>
@@ -88,22 +88,22 @@
                             <div class="author-social-networks">
                                 <div class="inner">
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Facebook" href="https://www.facebook.com/Bell6393"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Facebook" href="https://www.facebook.com/dcn.media1163"
                                         target="_blank">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Twitter" href="https://www.facebook.com/Bell6393"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Twitter" href="https://www.facebook.com/dcn.media1163"
                                         target="_blank">
                                         <i class="fab fa-twitter"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Linkedin" href="https://www.facebook.com/Bell6393"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Linkedin" href="https://www.facebook.com/dcn.media1163"
                                         target="_blank">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
 
-                                    <a class="hint--bounce hint--top hint--primary" aria-label="Tumblr" href="https://www.facebook.com/Bell6393"
+                                    <a class="hint--bounce hint--top hint--primary" aria-label="Tumblr" href="https://www.facebook.com/dcn.media1163"
                                         target="_blank">
                                         <i class="fab fa-tumblr-square"></i>
                                     </a>

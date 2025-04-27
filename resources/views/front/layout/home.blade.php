@@ -54,7 +54,7 @@
                     <div class="about-content">
                         <h3 class="title">Nơi nghệ thuật bắt đầu</h3>
                         <p>Phòng thu âm, quay, chụp chuyên nghiệp.</p>
-                        <a href="https://www.facebook.com/Bell6393" class="btn btn-primary btn-hover-dark">Bắt đầu ngay</a>
+                        <a href="https://www.facebook.com/dcn.media1163" class="btn btn-primary btn-hover-dark">Bắt đầu ngay</a>
                     </div>
                     <!-- About Content End -->
                 </div>
