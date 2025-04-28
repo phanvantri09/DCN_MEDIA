@@ -25,8 +25,8 @@
                     <div class="single-product-content">
                         <h3 class="title">{{$data['name']}}</h3>
                         <span class="prices">
-                            <span class="price-new">{{ number_format($data['price'])}} VNĐ</span>
-                            <span class="price-old">{{ number_format($data['price'] + ($data['price']/100*($data['discount'] ?? 5)))}} VNĐ</span>
+                            <span class="price-new">{{ ($data['price'])}} VNĐ</span>
+                            <span class="price-old">{{ ($data['original_price'] )}} VNĐ</span>
                         </span>
                         <div class="product-ratings">
                             <span class="star-rating">
@@ -58,31 +58,6 @@
                                 </button>
                             </a>
                         </div>
-
-                        {{-- <div class="product-meta">
-                            <div class="meta-item">
-                                <h6>Sku:</h6>
-                                <div class="meta-content">
-                                    <span class="sku">MCB-001</span>
-                                </div>
-                            </div>
-
-                            <div class="meta-item">
-                                <h6>Category:</h6>
-                                <div class="meta-content">
-                                    <a href="#" rel="tag">GYM</a>
-                                </div>
-                            </div>
-                            <div class="meta-item">
-                                <h6>Tags:</h6>
-                                <div class="meta-content">
-                                    <a href="#" rel="tag">business</a>
-                                    /
-                                    <a href="#" rel="tag">seo</a>
-                                </div>
-                            </div>
-                        </div> --}}
-
                         <div class="entry-product-share">
                             <h6>Chia sẽ:</h6>
                             <div class="author-social-networks">
@@ -140,127 +115,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="tab-pane fade" id="tab-reviews">
-                            <div class="row">
-                                <div class="col-lg-8 offset-lg-2">
-                                    <div class="comment-list-wrapper review-list-wrapper">
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <ol class="comment-list">
-                                                    <li class="comment border-bottom">
-                                                        <div class="comment-2">
-                                                            <div class="comment-author vcard">
-                                                                <img alt="" src="assetsUserSite/images/comment/comment1.png">
-                                                            </div>
-                                                            <div class="comment-content">
-                                                                <div class="meta">
-                                                                    <h6 class="fn">Edna Watson</h6>
-                                                                    <span class="star-rating">
-                                                                        <span class="rating-active">ratings</span>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="comment-text">
-                                                                    <p>Thanks for always keeping your HTML Template up to
-                                                                        date. Your level of support and dedication is second
-                                                                        to none.</p>
-                                                                </div>
-
-                                                                <div class="comment-actions">
-                                                                    <div class="comment-datetime">
-                                                                        November 16, 2018 at 4:31 am
-                                                                    </div>
-                                                                    <span>
-                                                                        |
-                                                                    </span>
-                                                                    <a class="comment-reply-link" href="#">Reply</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="comment border-bottom pb-25">
-                                                        <div class="comment-2">
-                                                            <div class="comment-author vcard">
-                                                                <img alt="" src="assetsUserSite/images/comment/comment2.png">
-                                                            </div>
-                                                            <div class="comment-content">
-                                                                <div class="meta">
-                                                                    <h6 class="fn">Owen Christ</h6>
-                                                                    <span class="star-rating">
-                                                                        <span class="rating-active">ratings</span>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="comment-text">
-                                                                    <p>Thanks for always keeping your HTML Template up to
-                                                                        date. Your level of support and dedication is second
-                                                                        to none.</p>
-                                                                </div>
-
-                                                                <div class="comment-actions">
-                                                                    <div class="comment-datetime">
-                                                                        November 19, 2018 at 4:31 am
-                                                                    </div>
-                                                                    <span>
-                                                                        |
-                                                                    </span>
-                                                                    <a class="comment-reply-link" href="#">Reply</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ol>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="comment-form-wrap review-form-wrap">
-                                        <div class="comment-respond">
-                                            <h3 class="title">Add a review</h3>
-                                            <p class="comment-notes max-mb-20">
-                                                <span id="email-notes">Your email address will not be published.</span>
-                                                Required fields are marked
-                                                <span class="required">*</span>
-                                            </p>
-
-
-                                            <div class="comment-form-rating mb-6">
-                                                <label>Your rating:</label>
-                                                <span class="rating">
-                                                    <span class="star"></span>
-                                                </span>
-                                            </div>
-
-                                            <form action="#" method="post">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-12 mb-6">
-                                                        <input type="text" placeholder="Your Name *" name="name">
-                                                    </div>
-                                                    <div class="col-md-6 col-12 mb-6">
-                                                        <input type="email" placeholder="Email *" name="email">
-                                                    </div>
-                                                    <div class="col-12 mb-6">
-                                                        <textarea name="message" placeholder="Your Comment"></textarea>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <p
-                                                            class="comment-form-cookies-consent justify-content-start text-left">
-                                                            <input id="comment-cookies-consent"
-                                                                name="comment-cookies-consent" type="checkbox" value="yes">
-                                                            <label for="comment-cookies-consent">Save my name, email, and
-                                                                website in this browser for the next time I comment.</label>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-12 text-center">
-                                                        <button
-                                                            class="btn btn-primary btn-hover-secondary btn-width-180 btn-height-60">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
