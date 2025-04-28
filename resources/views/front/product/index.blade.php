@@ -73,12 +73,6 @@
                                     <a href="{{ $product['url'] }}">
                                         <img src="{{ $product['image'] }}" class="w-100" alt="{{ $product['name'] }}">
                                     </a>
-                                    <div class="product-action">
-                                        <ul>
-                                            <li><a href="/wishlist/{{ $product['id'] }}"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="/cart/{{ $product['id'] }}"><i class="fal fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
                                 </div>
                                 <div class="product-content text-left">
                                     <h3 class="title"><a href="{{ $product['url'] }}">{{ $product['name'] }}</a></h3>
