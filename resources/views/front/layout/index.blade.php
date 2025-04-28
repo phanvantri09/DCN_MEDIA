@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>DCN-MEDIA</title>
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Thu âm và quay phim chụp hình Hồ Chí Minh">
+    <meta name="description" content="Thu Âm và quay phim chụp hình Hồ Chí Minh">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('storage/images/logo/logo.jpg') }}">

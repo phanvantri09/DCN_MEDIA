@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->integer('type')->nullable(false)->default(1); // 1 thu âm, 2 quay chụp
+            $table->string('type')->nullable()->default('Thu Âm');
             $table->string('name')->unique();
-            $table->float('price')->nullable(false)->default(0);
-            $table->text('description')->nullable();
+            $table->string('image')->nullable()->default('');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

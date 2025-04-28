@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_category')->nullable(false)->default(1);  // 1 thu âm, 2 quay chụp
+            $table->integer('id_category')->nullable(false)->default(1);  // 1 Thu Âm, 2 quay chụp
             $table->string('name');
             $table->text('sub_description')->nullable()->default(null);
             $table->integer('amount')->nullable(false)->default(0);

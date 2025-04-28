@@ -30,8 +30,8 @@
                         <div class="intro-content text-center">
                             <span class="sub-title">Chào mừng bạn đến với</span>
                             <h2 class="title">DCN MEDIA</h2>
-                            <a href="#" class="btn btn-primary btn-hover-secondary btn-width-290-80">Thu âm</a>
-                            <a href="#" class="btn btn-outline-white btn-hover-primary btn-width-290-80">Quay chụp</a>
+                            <a href="{{ route('services', ['type'=>"Thu Âm"]) }}" class="btn btn-primary btn-hover-secondary btn-width-290-80">Thu Âm</a>
+                            <a href="{{ route('services', ['type'=>"Quay Chụp"]) }}" class="btn btn-outline-white btn-hover-primary btn-width-290-80">Quay Chụp</a>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
                     <!-- About Content Start -->
                     <div class="about-content">
                         <h3 class="title">Nơi nghệ thuật bắt đầu</h3>
-                        <p>Phòng thu âm, quay, chụp chuyên nghiệp.</p>
+                        <p>Phòng Thu Âm, quay, chụp chuyên nghiệp.</p>
                         <a href="https://www.facebook.com/dcn.media1163" class="btn btn-primary btn-hover-dark">Bắt đầu ngay</a>
                     </div>
                     <!-- About Content End -->
@@ -133,7 +133,7 @@
                         </div>
                         <div class="content">
                             <h3 class="title">DỊCH VỤ <br>THU ÂM</h3>
-                            <a href="#" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                            <a href="{{ route('services', ['type'=>"Thu Âm"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
                         </div>
                     </div>
                     <!-- Single Banner End -->
@@ -151,7 +151,7 @@
                         </div>
                         <div class="content">
                             <h3 class="title">DỊCH VỤ <br>QUAY CHỤP </h3>
-                            <a href="#" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                            <a href="{{ route('services', ['type'=>"Quay Chụp"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
                         </div>
                     </div>
                     <!-- Single Banner End -->

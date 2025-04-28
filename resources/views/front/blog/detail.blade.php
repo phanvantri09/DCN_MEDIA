@@ -8,21 +8,22 @@
         </div>
     </div>
     <!-- Blog Details Section Start -->
-    <div class="section section-padding-170">
+    <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <!-- Blog Start -->
                     <div class="blog-details">
-                        <div class="thumbnail" data-aos="fade-up">
-                            <img src="assetsUserSite/images/blog/blog-details/blog-details.jpg" alt="Blog Image">
-                        </div>
+
                         <div class="info">
                             <div class="row">
                                 <div class="col-lg-8 m-auto" data-aos="fade-up" data-aos-delay="300">
+                                    <h2> {!! $data->name !!}</h2>
                                     {!! $data->content !!}
                                 </div>
+                                <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($data->img)}}" alt="Cover Image">
                             </div>
+
 
                             <div class="row">
                                 <div class="col-lg-8 m-auto" data-aos="fade-up" data-aos-delay="1200">

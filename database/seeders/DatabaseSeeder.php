@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             CreateProduct::class,
             CategorySeed::class, // Giữ nguyên nếu file là CategorySeed.php
             UserSeeder::class,
+            ServiceSeed::class,
+            BlogSeeder::class,
         ]);
     }
 }

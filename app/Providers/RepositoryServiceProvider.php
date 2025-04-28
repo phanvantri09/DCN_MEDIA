@@ -20,6 +20,10 @@ use App\Repositories\UserRepositoryInterface;
 use App\Repositories\BannerRepository;
 use App\Repositories\BannerRepositoryInterface;
 
+
+use App\Repositories\ServiceRepository;
+use App\Repositories\ServiceRepositoryInterface;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +40,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(BannerRepositoryInterface::class, BannerRepository::class);
+        $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
+
     }
     /**
      * Bootstrap services.
