@@ -1,4 +1,9 @@
 @extends('front.layout.index')
+<style>
+    .intro-content .btn {
+        margin: 4px 3px !important;
+    }
+</style>
 @section('content')
     <!-- Main Search Start -->
     <div class="main-search-active">
@@ -30,14 +35,18 @@
                         <div class="intro-content text-center">
                             <span class="sub-title">Chào mừng bạn đến với</span>
                             <h2 class="title">DCN MEDIA</h2>
-                            <a href="{{ route('services', ['type'=>"Thu Âm"]) }}" class="btn btn-primary btn-hover-secondary btn-width-290-80">Thu Âm</a>
-                            <a href="{{ route('services', ['type'=>"Quay Chụp"]) }}" class="btn btn-outline-white btn-hover-primary btn-width-290-80">Quay Chụp</a>
+                            <a href="{{ route('services', ['type' => 'Thu Âm']) }}"
+                                class="btn btn-outline-white btn-hover-secondary btn-width-290-80">Thu Âm</a>
+                            <a href="{{ route('services', ['type' => 'Quay Chụp']) }}"
+                                class="btn btn-outline-white btn-hover-primary btn-width-290-80">Quay Chụp</a>
+                            <a href="{{ route('services', ['type' => 'Hòa Âm Phối Khí']) }}"
+                                class="btn btn-outline-white btn-hover-primary btn-width-290-80">Hòa Âm Phối Khí</a>
+                            <a href="{{ route('services', ['type' => 'Sáng Tác']) }}"
+                                class="btn btn-outline-white btn-hover-primary btn-width-290-80">Sáng Tác</a>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
     <!-- About Section Start -->
@@ -54,7 +63,8 @@
                     <div class="about-content">
                         <h3 class="title">Nơi nghệ thuật bắt đầu</h3>
                         <p>Phòng Thu Âm, quay, chụp chuyên nghiệp.</p>
-                        <a href="https://www.facebook.com/dcn.media1163" class="btn btn-primary btn-hover-dark">Bắt đầu ngay</a>
+                        <a href="https://www.facebook.com/dcn.media1163" class="btn btn-primary btn-hover-dark">Bắt đầu
+                            ngay</a>
                     </div>
                     <!-- About Content End -->
                 </div>
@@ -133,7 +143,8 @@
                         </div>
                         <div class="content">
                             <h3 class="title">DỊCH VỤ <br>THU ÂM</h3>
-                            <a href="{{ route('services', ['type'=>"Thu Âm"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                            <a href="{{ route('services', ['type' => 'Thu Âm']) }}" class="btn btn-primary btn-hover-dark">XEM
+                                NGAY</a>
                         </div>
                     </div>
                     <!-- Single Banner End -->
@@ -151,7 +162,8 @@
                         </div>
                         <div class="content">
                             <h3 class="title">DỊCH VỤ <br>QUAY CHỤP </h3>
-                            <a href="{{ route('services', ['type'=>"Quay Chụp"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                            <a href="{{ route('services', ['type' => 'Quay Chụp']) }}"
+                                class="btn btn-primary btn-hover-dark">XEM NGAY</a>
                         </div>
                     </div>
                     <!-- Single Banner End -->
@@ -283,7 +295,8 @@
                             <div class="blog">
                                 <div class="thumbnail">
                                     <a href="blog-details.html" class="image"><img
-                                            src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}" alt="Blog Image"></a>
+                                            src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}"
+                                            alt="Blog Image"></a>
                                     <span class="badge"><i class="fal fa-quote-left"></i></span>
                                 </div>
                                 <div class="info">
@@ -291,12 +304,13 @@
                                         <li><a href="#">Fitness,</a> <a href="#">Lifestyle</a></li>
                                         <li>03 Jul, 2020</li>
                                     </ul> --}}
-                                    <h3 class="title"><a href="blog-details.html">{{$item->name}}</a></h3>
+                                    <h3 class="title"><a href="blog-details.html">{{ $item->name }}</a></h3>
                                     <div class="desc">
                                         <p>{!! $item->content_pre !!}
                                         </p>
                                     </div>
-                                    <a href="{{ route('blogs', ['id'=>$item->id]) }}" class="btn btn-outline-secondary btn-hover-primary">Đọc Thêm</a>
+                                    <a href="{{ route('blogs', ['id' => $item->id]) }}"
+                                        class="btn btn-outline-secondary btn-hover-primary">Đọc Thêm</a>
                                 </div>
                             </div>
                             <!-- Single Blog Grid End -->
