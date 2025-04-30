@@ -1,58 +1,78 @@
 @extends('front.layout.index')
 @section('content')
     @include('front.layout.banner')
-    <div class="section section-padding-t100-b200 section-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="program-tab" data-aos="fade-up">
-                        <ul class="nav justify-content-center">
-                            @foreach ($data as $key => $item)
-                                @if ($key == 0)
-                                    <li>
-                                        <a class="active" data-toggle="tab"
-                                            href="#tabS{{ $item->id }}">{{ $item->name }}</a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a data-toggle="tab" href="#tabS{{ $item->id }}">{{ $item->name }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-                        @foreach ($data as $key => $item)
-                            <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="tabS{{ $item->id }}">
-                                <div class="all-program-routine table-responsive">
-                                    <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage("service/".$item->image)}}" alt="Cover Image">
-                                    {{-- <table class="table">
-                                        <thead>
-                                            <tr class="heading-row">
-                                                <th></th>
-                                                <th>Monday</th>
-                                                <th>Tuesday</th>
-                                                <th>Wednesday</th>
-                                                <th>Thursday</th>
-                                                <th>Friday</th>
-                                                <th>Saturday</th>
-                                                <th>Sunday</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="row-one">
+    <div class="section">
+        <div class="container-fulid">
+            <div class="row row-cols-lg-2 row-cols-1 g-0">
 
-                                            </tr>
-
-                                        </tbody>
-                                    </table> --}}
-                                </div>
-                                <div>
-                                    {!! $item->description !!}
-                                </div>
+                <div class="col" data-aos="fade-up">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-1.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>THU ÂM</h3>
+                            <a href="{{ route('services', ['type'=>"Thu Âm"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
                     </div>
+                    <!-- Single Banner End -->
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-2.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>QUAY CHỤP </h3>
+                            <a href="{{ route('services', ['type'=>"Quay Chụp"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-3.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>Hòa Âm Phối Khí</h3>
+                            <a href="{{ route('services', ['type'=>"Hòa Âm Phối Khí"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-4.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>Sáng Tác</h3>
+                            <a href="{{ route('services', ['type'=>"Sáng Tác"]) }}" class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
                 </div>
             </div>
         </div>

@@ -57,9 +57,11 @@ class HomeController extends Controller
         // return view('front.service.index', compact(['data']));
         if ($request->type) {
             $data = $this->serviceRepository->getAllByType($request->type);
+        } else {
+            return view('front.service.index', compact(['data']));
         }
 
-        return view('front.service.index', compact(['data']));
+        return view('front.service.detail', compact(['data']));
     }
 
     public function shop(Request $request) : View

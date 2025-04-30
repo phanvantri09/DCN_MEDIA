@@ -53,6 +53,9 @@
                                 <li>
                                     <a href="{{ route('contact') }}"><span class="menu-text">Liên hệ</span></a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('services') }}"><span class="menu-text">Báo giá</span></a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

@@ -67,6 +67,9 @@
                     <li>
                         <a href="event.html"><span class="menu-text">Event</span></a>
                     </li> --}}
+                    <li>
+                        <a href="{{ route('services') }}"><span class="menu-text">Báo giá</span></a>
+                    </li>
                 </ul>
             </nav>
         </div>
