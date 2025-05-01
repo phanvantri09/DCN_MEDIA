@@ -49,5 +49,17 @@ class ServiceSeed extends Seeder
                 'name' => 'Chụp cơ bản, Beauty',
                 'description' => ''
             ]);
+            DB::table('services')->insert([
+                'type' => "Hòa âm Phối Khí",
+                'image' => '7.gif',
+                'name' => 'Cover(Hòa âm Phối Khí)',
+                'description' => ''
+            ]);
+            DB::table('services')->insert([
+                'type' => "Hòa âm Phối Khí",
+                'image' => '8.gif',
+                'name' => 'Bài hát mới(Hòa âm Phối Khí)',
+                'description' => ''
+            ]);
     }
 }
