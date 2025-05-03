@@ -28,7 +28,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
         $nameImage = 'Banner-' . ConstCommon::getCurrentTime() . '.' . $request->image->extension();
         ConstCommon::addImageToStorage($request->image, $nameImage);
