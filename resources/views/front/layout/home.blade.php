@@ -135,7 +135,7 @@
                     <!-- Single Banner Start -->
                     <div class="single-banner">
                         <div class="thumbnail">
-                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-22.jpg"
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-1.jpg"
                                     alt=""></a>
                             <div class="inner-block">
                                 <div class="slider-top-right"></div>
@@ -154,7 +154,7 @@
                     <!-- Single Banner Start -->
                     <div class="single-banner">
                         <div class="thumbnail">
-                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-22.jpg"
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-2.jpg"
                                     alt=""></a>
                             <div class="inner-block">
                                 <div class="slider-top-right"></div>
@@ -162,7 +162,43 @@
                         </div>
                         <div class="content">
                             <h3 class="title">DỊCH VỤ <br>QUAY CHỤP </h3>
-                            <a href="{{ route('services', ['type' => 'Quay Chụp']) }}"
+                            <a href="{{ route('services', ['type' => 'Hòa Âm Phối Khí']) }}"
+                                class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-3.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>HÒA ÂM PHỐI KHÍ </h3>
+                            <a href="{{ route('services', ['type' => 'Hòa Âm Phối Khí']) }}"
+                                class="btn btn-primary btn-hover-dark">XEM NGAY</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner">
+                        <div class="thumbnail">
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-4.jpg"
+                                    alt=""></a>
+                            <div class="inner-block">
+                                <div class="slider-top-right"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">DỊCH VỤ <br>SÁNG TÁC </h3>
+                            <a href="{{ route('services', ['type' => 'Sáng Tác']) }}"
                                 class="btn btn-primary btn-hover-dark">XEM NGAY</a>
                         </div>
                     </div>
