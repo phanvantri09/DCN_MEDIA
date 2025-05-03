@@ -14,9 +14,11 @@ class ProductController extends Controller
         $products = Product::with('category')
             ->orderBy('created_at', 'desc')
             ->take($perPage)
+            ->when($request->id_category, function ($query) use ($request) {
+                return $query->where('id_category', $request->id_category);
+            })
             ->get()
             ->map(fn($product) => $product->formatProductForDisplay());
-                
         // Tính tổng số sản phẩm có thể tải
         $totalProducts = Product::count();
         return view('front.product.index', [

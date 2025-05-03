@@ -1,4 +1,9 @@
 <!-- Header Section Start -->
+<style>
+    .has-children{
+        color: white !important;
+    }
+</style>
 <div class="header-section header-transparent sticky-header header-fluid section">
     <div class="header-inner">
         <div class="container position-relative">
@@ -23,21 +28,20 @@
                                 <li>
                                     <a href="{{ route('index') }}"><span class="menu-text">Trang chủ</span></a>
                                 </li>
-                                {{-- <li class="has-children"> --}}
-                                <li>
-                                    <a href="{{ route('products.list') }}"><span class="menu-text">Cửa hàng</span></a>
-                                    {{-- <span class="menu-toggle"><i class="far fa-angle-down"></i></span> --}}
-                                    {{-- <ul class="sub-menu">
-                                        <li><a href="shop.html"><span class="menu-text">Shop</span></a></li>
-                                        <li><a href="product-details.html"><span class="menu-text">Product
-                                                    Details</span></a></li>
-                                        <li><a href="shopping-cart.html"><span class="menu-text">Shopping
-                                                    Cart</span></a></li>
-                                        <li><a href="wishlist.html"><span class="menu-text">Wishlist</span></a>
-                                        </li>
-                                        <li><a href="checkout.html"><span class="menu-text">Checkout</span></a>
-                                        </li>
-                                    </ul> --}}
+                                <li class="has-children">
+                                {{-- <li> --}}
+                                    @php
+                                        use App\Helpers\ConstCommon;
+                                         $menuus = ConstCommon::getAllCategory();
+                                        //  dd($menuus);
+                                    @endphp
+                                    <a><span class="menu-text">Cửa hàng</span></a>
+                                    <span class="menu-toggle"><i class="far fa-angle-down"></i></span>
+                                    <ul class="sub-menu">
+                                        @foreach ($menuus as $item)
+                                        <li><a href="{{ route('products.list', ["id_category"=>$item->id ]) }}"><span class="menu-text">{{ $item->title }}</span></a></li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                                 {{-- <li class="has-children"> --}}
                                 <li>

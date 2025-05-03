@@ -68,22 +68,10 @@
 						<li class="nav-item bg-orange ">
 							<a href="{{ route('index') }}" class="nav-link" target="_blank">
 								<i class="fas fa-home"></i>
-								<p>Trang người dùng</p>
+								<p>Về trang chính</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="{{ route('index') }}" class="nav-link active" target="_blank">
-								<i class="fas fa-tachometer-alt"></i>
-								<p>Tổng quang</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ route('index') }}" class="nav-link active" target="_blank">
-								<i class="fas fa-tachometer-alt"></i>
-								<p>Link liên hệ</p>
-							</a>
-						</li>
-						<li class="nav-item">
+						{{-- <li class="nav-item">
 							<a class="nav-link">
 								<i class="nav-icon fas fa-copy"></i>
 								<p>
@@ -106,31 +94,8 @@
 									</a>
 								</li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link">
-								<i class="nav-icon fas fa-copy"></i>
-								<p>
-									Blogs
-									<i class="fas fa-angle-left right"></i>
-									<span class="badge badge-info right"></span>
-								</p>
-							</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item">
-									<a href="{{ route('blog.list') }}" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Danh sách</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="{{ route('blog.add') }}" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Thêm</p>
-									</a>
-								</li>
-							</ul>
-						</li>
+						</li> --}}
+
 						<li class="nav-item">
 							<a class="nav-link">
 								<i class="nav-icon fas fa-copy"></i>
@@ -173,6 +138,30 @@
 								</li>
 								<li class="nav-item">
 									<a href="{{ route('product.add') }}" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Thêm</p>
+									</a>
+								</li>
+							</ul>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link">
+								<i class="nav-icon fas fa-copy"></i>
+								<p>
+									Blogs
+									<i class="fas fa-angle-left right"></i>
+									<span class="badge badge-info right"></span>
+								</p>
+							</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item">
+									<a href="{{ route('blog.list') }}" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Danh sách</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ route('blog.add') }}" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Thêm</p>
 									</a>
