@@ -44,7 +44,7 @@
                     <!-- Single Banner Start -->
                     <div class="single-banner">
                         <div class="thumbnail">
-                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-3.jpg"
+                            <a class="image" href="#"><img src="assetsUserSite/images/banner/banner-3.jfif"
                                     alt=""></a>
                             <div class="inner-block">
                                 <div class="slider-top-right"></div>

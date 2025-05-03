@@ -26,7 +26,7 @@
 
     <!-- Slider/Intro Section Start -->
     <div class="intro-slider-wrap section">
-        <div class="intro-section section" data-bg-image="assetsUserSite/images/intro/intro.png">
+        <div class="intro-section section" data-bg-image="assetsUserSite/images/intro/intro.jpg">
 
             <div class="container-fluid">
                 <div class="row row-cols-lg-1 row-cols-1">
