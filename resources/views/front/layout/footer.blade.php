@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-5 col-sm-12 col-12 col-12 mb-6">
                 <div class="footer-widget">
                     <div class="footer-logo">
-                        <a href="https://www.facebook.com/dcn.media1163"><img src="" alt="Logo"></a>
+                        <a href="https://www.facebook.com/dcn.media1163"><img src="{{ asset('storage/images/logo/logo.jpg') }}" alt="Logo"></a>
                     </div>
                     <div class="footer-widget-content">
                         <div class="footer-social-inline">
