@@ -1,12 +1,6 @@
 @extends('front.layout.index')
 @section('content')
-    <div class="page-title-section section"  data-bg-image="assetsUsersite/images/bg/breadcrumb-shop.jpg">
-        <div class="page-title pt-lg-10 pt-10">
-            <div class="container">
-                <h1 class="title">{{ $title ?? "DCN Media Sản Phẩm"}}</h1>
-            </div>
-        </div>
-    </div>
+@include('front.layout.banner')
     <!-- Page Title Section End -->
 
     <!-- Single Product Section Start -->
