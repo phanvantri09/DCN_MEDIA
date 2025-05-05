@@ -22,13 +22,13 @@
                             <span class="price-new">{{ ($data['price'])}} VNĐ</span>
                             <span class="price-old">{{ ($data['original_price'] )}} VNĐ</span>
                         </span>
-                        <div class="product-ratings">
+                        {{-- <div class="product-ratings">
                             <span class="star-rating">
                                 <span class="rating-active">ratings</span>
                             </span>
                             <a href="#reviews" class="review-link">(<span class="count">2</span>
                                 customer reviews)</a>
-                        </div>
+                        </div> --}}
                         <div class="product-description">
                             <p>{!! $data['sub_description'] !!}</p>
                         </div>

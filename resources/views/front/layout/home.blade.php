@@ -210,7 +210,7 @@
     </div>
     <!-- Banner Section End -->
 
-    <!-- Testimonial Section Start -->
+    {{-- <!-- Testimonial Section Start -->
     <div class="section section-padding-t120-b100 section-fluid-240">
         <div class="container">
             <div class="row align-items-center">
@@ -228,9 +228,6 @@
 
                             <div class="swiper-slide">
                                 <div class="testimonial">
-                                    <div class="qute-icon">
-                                        <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
-                                    </div>
                                     <div class="testimonial-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -255,9 +252,6 @@
 
                             <div class="swiper-slide">
                                 <div class="testimonial">
-                                    <div class="qute-icon">
-                                        <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
-                                    </div>
                                     <div class="testimonial-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -281,9 +275,6 @@
 
                             <div class="swiper-slide">
                                 <div class="testimonial">
-                                    <div class="qute-icon">
-                                        <img src="assetsUserSite/images/icon/qute.svg" alt="qute">
-                                    </div>
                                     <div class="testimonial-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -313,7 +304,7 @@
             </div>
         </div>
     </div>
-    <!-- Testimonial Section End -->
+    <!-- Testimonial Section End --> --}}
 
     <!-- Blog Section Start -->
     @if (!empty($blogs))
