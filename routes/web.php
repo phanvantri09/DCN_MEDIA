@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\AuthLoginController;
+use App\Http\Controllers\AuthRegisterController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
@@ -44,9 +45,11 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/{id}','detail')->name('detail');
         });
         
-        // Review routes
-        Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
-        Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store')->middleware('auth');
+        // Review routes - only for authenticated users
+        Route::middleware(['auth', 'check.role:user'])->group(function () {
+            Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
+            Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store');
+        });
     });
 
 });
@@ -54,10 +57,20 @@ Route::group(['prefix' => '/'], function () {
 Route::controller(AuthLoginController::class)->group(function () {
     Route::get('/login','login')->name('login');
     Route::post('/login','loginPost')->name('login');
+    
     Route::get('/logout', 'logout')->name('logout');
 });
 
-Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function () {
+Route::controller(AuthRegisterController::class)->group(function () {
+    Route::get('/register', 'showRegistrationForm')->name('register');
+    Route::post('/register', 'register')->name('register');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.role:admin']], function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
     Route::group(['prefix' => 'blog', 'as' =>'blog.'], function () {
         Route::controller(BlogController::class)->group(function () {
             // danh sách

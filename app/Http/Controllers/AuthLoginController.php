@@ -22,20 +22,34 @@ class AuthLoginController extends Controller
     public function login() :View
     {
         if (Auth::check()) {
-            return redirect()->route('index')->with('info','Bạn đã đăng nhập rồi');
+            $user = Auth::user();
+            if ($user->is_admin === 1) {
+                return redirect()->route('admin.dashboard')->with('info', 'Bạn đã đăng nhập rồi');
+            }
+            return redirect()->route('index')->with('info', 'Bạn đã đăng nhập rồi');
         }
         return view('login');
     }
     public function loginPost(Request $request)
     {
-        $credentials = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
-        ];
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         if (Auth::attempt($credentials)) {
-            return redirect()->route('product.list')->with('info','Bạn đã đăng nhập rồi');
-        } else {
-            return redirect()->back()->with('error','Sai thông tin');
+            $user = Auth::user();
+            
+            // Redirect based on role
+            if ($user->is_admin === 1) {
+                return redirect()->route('admin.dashboard')->with('success', 'Đăng nhập thành công!');
+            } else {
+                return redirect()->route('index')->with('success', 'Đăng nhập thành công!');
+            }
         }
+
+        return back()->withErrors([
+            'email' => 'Email hoặc mật khẩu không đúng.',
+        ]);
     }
 }
