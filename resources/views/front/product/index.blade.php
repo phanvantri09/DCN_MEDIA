@@ -202,8 +202,8 @@
                                                         <div class="product-content text-left">
                                                             <h3 class="title"><a href="${product.url}">${product.name}</a></h3>
                                                             <p class="product-price">
-                                                                ${product.discount ? `<span class="main-price discounted"><del>$${product.original_price}</del></span>` : ''}
-                                                                <span class="discounted-price">$${product.price}</span>
+                                                                ${product.discount ? `<span class="main-price discounted"><del>$${product.original_price} VNĐ</del></span>` : ''}
+                                                                <span class="discounted-price">$${product.price} VNĐ</span>
                                                             </p>
                                                         </div>
                                                     </div>
