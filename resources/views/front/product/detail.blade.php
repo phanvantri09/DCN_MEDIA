@@ -147,7 +147,6 @@
                                 <form id="review-form">
                                     @csrf
                                     <div class="form-group mb-4">
-                                        <label class="d-block mb-2">Sao</label>
                                         <div class="rating-input">
                                             <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
                                             <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
@@ -291,11 +290,11 @@
                                 <div class="review-item card mb-4">
                                     <div class="card-body">
                                         <div class="review-header d-flex align-items-center mb-3">
-                                            <div class="stars me-3">${starsHtml}</div>
-                                            <div class="reviewer-info">
+                                            <div class="reviewer-info me-3">
                                                 <h5 class="reviewer-name mb-0">${review.user.name}</h5>
                                                 <small class="text-muted">${new Date(review.created_at).toLocaleDateString()}</small>
                                             </div>
+                                            <div class="stars" style="padding-bottom:25px;">${starsHtml}</div>
                                         </div>
                                         <div class="review-content">
                                             <p class="mb-0">${review.comment}</p>
@@ -389,7 +388,6 @@
     <style>
     .rating-input {
         display: flex;
-        flex-direction: row-reverse;
         justify-content: flex-start;
     }
 
@@ -423,10 +421,34 @@
 
     .review-item {
         transition: transform 0.2s ease;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .review-item:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .review-header {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 1rem;
+    }
+
+    .reviewer-info {
+        min-width: 70px;
+    }
+
+    .reviewer-name {
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .review-content {
+        color: #666;
+        line-height: 1.6;
+        padding-top: 1rem;
     }
 
     .rating-number {
@@ -471,16 +493,6 @@
         width: 50px;
         height: 2px;
         background-color: #ffd700;
-    }
-
-    .reviewer-name {
-        color: #333;
-        font-weight: 600;
-    }
-
-    .review-content {
-        color: #666;
-        line-height: 1.6;
     }
 
     .alert-info {
