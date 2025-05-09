@@ -11,44 +11,66 @@ class ReviewController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string|min:10|max:1000'
-        ]);
+        try {
+            \Log::info('Review submission attempt', [
+                'user_id' => Auth::id(),
+                'product_id' => $request->route('id'),
+                'request_data' => $request->all()
+            ]);
 
-        // Check if user has already reviewed this product
-        $existingReview = ProductReview::where('user_id', Auth::id())
-            ->where('product_id', $request->product_id)
-            ->first();
+            $request->validate([
+                'rating' => 'required|integer|min:1|max:5',
+                'comment' => 'required|string|max:1000'
+            ]);
 
-        if ($existingReview) {
+            // Get product_id from the URL parameter
+            $productId = $request->route('id');
+            
+            if (!$productId) {
+                throw new \Exception('Product ID not found in URL');
+            }
+
+            $review = new ProductReview();
+            $review->user_id = Auth::id();
+            $review->product_id = $productId;
+            $review->rating = $request->rating;
+            $review->comment = $request->comment;
+            $review->is_approved = true;
+            $review->save();
+
+            \Log::info('Review created successfully', ['review_id' => $review->id]);
+
             return response()->json([
-                'message' => 'You have already reviewed this product',
+                'message' => 'Đánh giá đã được gửi thành công',
+                'review' => $review,
+                'status' => 'success'
+            ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation error in review submission', [
+                'errors' => $e->errors()
+            ]);
+            return response()->json([
+                'message' => 'Vui lòng kiểm tra lại thông tin đánh giá',
+                'errors' => $e->errors(),
                 'status' => 'error'
             ], 422);
+        } catch (\Exception $e) {
+            \Log::error('Review submission error', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json([
+                'message' => 'Có lỗi xảy ra khi gửi đánh giá: ' . $e->getMessage(),
+                'status' => 'error'
+            ], 500);
         }
-
-        $review = ProductReview::create([
-            'user_id' => Auth::id(),
-            'product_id' => $request->product_id,
-            'rating' => $request->rating,
-            'comment' => $request->comment,
-            'is_approved' => false // Reviews need approval by admin
-        ]);
-
-        return response()->json([
-            'message' => 'Review submitted successfully and pending approval',
-            'review' => $review,
-            'status' => 'success'
-        ]);
     }
 
     public function getProductReviews($productId)
     {
         $reviews = ProductReview::with('user')
             ->where('product_id', $productId)
-            ->where('is_approved', true)
             ->orderBy('created_at', 'desc')
             ->get();
 

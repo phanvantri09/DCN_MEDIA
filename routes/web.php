@@ -44,11 +44,9 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/{id}','detail')->name('detail');
         });
         
-        // Add review routes
-        Route::middleware(['auth'])->group(function () {
-            Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store');
-            Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
-        });
+        // Review routes
+        Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
+        Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store')->middleware('auth');
     });
 
 });
