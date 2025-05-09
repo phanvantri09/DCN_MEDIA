@@ -148,11 +148,11 @@
                                     @csrf
                                     <div class="form-group mb-4">
                                         <div class="rating-input">
-                                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                            <input type="radio" name="rating" value="5" id="1"><label for="1">☆</label>
+                                            <input type="radio" name="rating" value="4" id="2"><label for="2">☆</label>
                                             <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                            <input type="radio" name="rating" value="2" id="4"><label for="4">☆</label>
+                                            <input type="radio" name="rating" value="1" id="5"><label for="5">☆</label>
                                         </div>
                                     </div>
                                     <div class="form-group mb-4">
@@ -355,7 +355,6 @@
                     if (!response.ok) {
                         return response.json().then(err => {
                             if (err.errors) {
-                                // Get the first error message from each field
                                 const errorMessages = Object.values(err.errors).map(messages => messages[0]);
                                 throw new Error(errorMessages.join('\n'));
                             }
@@ -388,7 +387,8 @@
     <style>
     .rating-input {
         display: flex;
-        justify-content: flex-start;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
     }
 
     .rating-input input {
