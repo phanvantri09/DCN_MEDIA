@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Front\ReviewController;
 
 
 
@@ -41,6 +42,12 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/','list')->name('list');
             Route::get('/load-more','loadProducts')->name('load');
             Route::get('/{id}','detail')->name('detail');
+        });
+        
+        // Add review routes
+        Route::middleware(['auth'])->group(function () {
+            Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store');
+            Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
         });
     });
 

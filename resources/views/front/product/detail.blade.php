@@ -115,4 +115,182 @@
         </div>
     </div>
     <!-- Single Products Information Section End -->
+
+    <!-- Reviews Section -->
+    <div class="product-reviews mt-5">
+        <h3>Customer Reviews</h3>
+        
+        <!-- Review Summary -->
+        <div class="review-summary mb-4">
+            <div class="average-rating">
+                <h4>Average Rating: <span id="average-rating">0</span>/5</h4>
+                <div class="stars" id="average-stars"></div>
+            </div>
+            <p>Total Reviews: <span id="total-reviews">0</span></p>
+        </div>
+
+        <!-- Review Form (for logged in users) -->
+        @auth
+        <div class="review-form mb-4">
+            <h4>Write a Review</h4>
+            <form id="review-form">
+                @csrf
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="rating-input">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Your Review</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+        @else
+        <div class="alert alert-info">
+            Please <a href="{{ route('login') }}">login</a> to write a review.
+        </div>
+        @endauth
+
+        <!-- Reviews List -->
+        <div class="reviews-list" id="reviews-list">
+            <!-- Reviews will be loaded here -->
+        </div>
+    </div>
+@endsection
+
+@section('scripts')
+<script>
+$(document).ready(function() {
+    const productId = {{ $data['id'] }};
+    
+    // Function to render stars
+    function renderStars(rating, element) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="star ${i <= rating ? 'filled' : ''}">☆</span>`;
+        }
+        element.html(stars);
+    }
+
+    // Load reviews
+    function loadReviews() {
+        $.get(`/product/${productId}/reviews`, function(response) {
+            $('#average-rating').text(response.averageRating);
+            $('#total-reviews').text(response.totalReviews);
+            renderStars(response.averageRating, $('#average-stars'));
+
+            let reviewsHtml = '';
+            response.reviews.forEach(review => {
+                reviewsHtml += `
+                    <div class="review-item mb-3">
+                        <div class="review-header">
+                            <div class="stars">${renderStars(review.rating, $('<div>')).html()}</div>
+                            <span class="reviewer-name">${review.user.name}</span>
+                            <span class="review-date">${new Date(review.created_at).toLocaleDateString()}</span>
+                        </div>
+                        <div class="review-content">
+                            <p>${review.comment}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            $('#reviews-list').html(reviewsHtml);
+        });
+    }
+
+    // Submit review
+    $('#review-form').submit(function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            product_id: productId,
+            rating: $('input[name="rating"]:checked').val(),
+            comment: $('#comment').val(),
+            _token: $('input[name="_token"]').val()
+        };
+
+        $.ajax({
+            url: `/product/${productId}/review`,
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                if (response.status === 'success') {
+                    alert('Review submitted successfully and pending approval');
+                    $('#review-form')[0].reset();
+                    loadReviews();
+                }
+            },
+            error: function(xhr) {
+                const response = xhr.responseJSON;
+                alert(response.message || 'Error submitting review');
+            }
+        });
+    });
+
+    // Initial load
+    loadReviews();
+});
+</script>
+
+<style>
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    cursor: pointer;
+    font-size: 30px;
+    color: #ddd;
+    padding: 5px;
+}
+
+.rating-input input:checked ~ label,
+.rating-input label:hover,
+.rating-input label:hover ~ label {
+    color: #ffd700;
+}
+
+.star {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.review-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9em;
+}
+</style>
 @endsection
