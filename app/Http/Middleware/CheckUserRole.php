@@ -15,9 +15,9 @@ class CheckUserRole
         }
 
         $user = Auth::user();
-        
+
         // Check if user is admin (role 1)
-        if ($role === 'admin' && $user->is_admin !== 1) {
+        if ($role === 'admin' && $user->is_admin !== 999) {
             return redirect()->route('index')->with('error', 'Bạn không có quyền truy cập trang này.');
         }
         
@@ -28,4 +28,4 @@ class CheckUserRole
 
         return $next($request);
     }
-} 
+}
