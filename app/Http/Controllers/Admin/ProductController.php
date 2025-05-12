@@ -41,6 +41,7 @@ class ProductController extends Controller
             'sub_description' => $request->sub_description,
             'amount' => $request->amount,
             'discount' => $request->discount,
+            'warranty_months' => $request->warranty_months,
             'description' => $request->description,
             'price' => $request->price,
             'image' => $nameImage
@@ -75,6 +76,7 @@ class ProductController extends Controller
                 'sub_description' => $request->sub_description,
                 'amount' => $request->amount,
                 'discount' => $request->discount,
+                'warranty_months' => $request->warranty_months,
                 'description' => $request->description,
                 'price' => $request->price,
                 'image' => $nameImage
@@ -86,6 +88,7 @@ class ProductController extends Controller
                 'sub_description' => $request->sub_description,
                 'amount' => $request->amount,
                 'discount' => $request->discount,
+                'warranty_months' => $request->warranty_months,
                 'description' => $request->description,
                 'price' => $request->price
             ];

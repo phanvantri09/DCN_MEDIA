@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('price')->nullable(false)->default(0);
             $table->integer('discount')->nullable();
             $table->string('image');
+            $table->integer('warranty_months')->nullable()->default(0); // thời gian bảo hành
             $table->timestamps();
         });
     }

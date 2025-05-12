@@ -45,11 +45,8 @@ Route::group(['prefix' => '/'], function () {
             Route::get('/{id}','detail')->name('detail');
         });
         
-        // Review routes - only for authenticated users
-        Route::middleware(['auth', 'check.role:user'])->group(function () {
-            Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
-            Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store');
-        });
+        Route::get('/{id}/reviews', [ReviewController::class, 'getProductReviews'])->name('review.list');
+        Route::post('/{id}/review', [ReviewController::class, 'store'])->name('review.store');
     });
 
 });

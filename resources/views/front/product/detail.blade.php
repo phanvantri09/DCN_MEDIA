@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="single-product-content">
-                        <h3 class="title">{{$data['name']}}</h3>
+                        <h3 class="title">{{$data['name']}} <span style="font-size: 15px; color: #666; font-weight: normal;">(bảo hành: {{ $data['warranty_months'] }} tháng)</span></h3>
                         <span class="prices">
                             <span class="price-new">{{ ($data['price'])}} VNĐ</span>
                             <span class="price-old">{{ ($data['original_price'])}} VNĐ</span>

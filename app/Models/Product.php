@@ -18,7 +18,8 @@ class Product extends Model
         'discount',
         'description',
         'price',
-        'image'
+        'image',
+        'warranty_months'
     ];
 
     public function category()
@@ -47,6 +48,7 @@ class Product extends Model
             'sub_description' => $this->sub_description,
             'description' => $this->description,
             'amount' => $this->amount,
+            'warranty_months' => $this->warranty_months,
         ];
     }
 }

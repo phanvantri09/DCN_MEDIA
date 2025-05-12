@@ -91,6 +91,19 @@
                             <div class="col-sm-3">
                                 <!-- select -->
                                 <div class="form-group">
+                                    <label>Thời gian bảo hành (tháng)</label>
+                                    <input type="number" name="warranty_months" class="form-control" value="{{old('warranty_months', 0)}}"
+                                        placeholder="Nhập số tháng bảo hành">
+                                    @error('warranty_months')
+                                        <div class="alert alert-danger">{{ $errors->first('warranty_months') }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <!-- select -->
+                                <div class="form-group">
                                     <label>Giảm giá (%)</label>
                                     <select name="discount" class="form-control">
                                         <option value="">Không giảm giá</option>
