@@ -64,10 +64,7 @@ Route::controller(AuthRegisterController::class)->group(function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.role:admin']], function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-
+    
     Route::group(['prefix' => 'blog', 'as' =>'blog.'], function () {
         Route::controller(BlogController::class)->group(function () {
             // danh sách

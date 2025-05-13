@@ -19,12 +19,12 @@ class AuthLoginController extends Controller
 
         return redirect()->route('login');
     }
-    public function login() :View
+    public function login() : \Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
     {
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->is_admin === 1) {
-                return redirect()->route('admin.dashboard')->with('info', 'Bạn đã đăng nhập rồi');
+                return redirect()->route('product.list')->with('info', 'Bạn đã đăng nhập rồi');
             }
             return redirect()->route('index')->with('info', 'Bạn đã đăng nhập rồi');
         }
@@ -42,7 +42,7 @@ class AuthLoginController extends Controller
             
             // Redirect based on role
             if ($user->is_admin === 1) {
-                return redirect()->route('admin.dashboard')->with('success', 'Đăng nhập thành công!');
+                return redirect()->route('product.list')->with('success', 'Đăng nhập thành công!');
             } else {
                 return redirect()->route('index')->with('success', 'Đăng nhập thành công!');
             }
