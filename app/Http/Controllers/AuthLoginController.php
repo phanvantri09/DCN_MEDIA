@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class AuthLoginController extends Controller
 {
 
-    public function logout(Request $request)
+    public function logout(Request $request): View|RedirectResponse
     {
         Auth::logout();
 
@@ -19,18 +20,19 @@ class AuthLoginController extends Controller
 
         return redirect()->route('login');
     }
-    public function login() : \Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+    public function login() : View|RedirectResponse
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->is_admin === 1) {
+
+            if ($user->is_admin === 999) {
                 return redirect()->route('product.list')->with('info', 'Bạn đã đăng nhập rồi');
             }
             return redirect()->route('index')->with('info', 'Bạn đã đăng nhập rồi');
         }
         return view('login');
     }
-    public function loginPost(Request $request)
+    public function loginPost(Request $request): View|RedirectResponse
     {
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -39,9 +41,7 @@ class AuthLoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            
-            // Redirect based on role
-            if ($user->is_admin === 1) {
+            if ($user->is_admin === 999) {
                 return redirect()->route('product.list')->with('success', 'Đăng nhập thành công!');
             } else {
                 return redirect()->route('index')->with('success', 'Đăng nhập thành công!');
