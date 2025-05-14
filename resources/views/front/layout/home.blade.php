@@ -5,25 +5,7 @@
     }
 </style>
 @section('content')
-    <!-- Main Search Start -->
-    <div class="main-search-active">
-        <div class="sidebar-search-icon">
-            <button class="search-close"><i class="fal fa-times"></i></button>
-        </div>
-        <div class="sidebar-search-input">
-            <form action="#">
-                <div class="form-search">
-                    <input id="search" class="input-text" value="" placeholder="" type="search">
-                    <button>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </form>
-            <p class="form-description">Nhập thông tin bạn cần tìm</p>
-        </div>
-    </div>
-    <!-- Main Search End -->
-
+    
     <!-- Slider/Intro Section Start -->
     <div class="intro-slider-wrap section">
         <div class="intro-section section" data-bg-image="assetsUserSite/images/intro/intro.jpg">

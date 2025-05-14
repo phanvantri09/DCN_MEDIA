@@ -70,13 +70,11 @@
                 <div class="col-xl-2 col-auto d-flex align-items-center justify-content-end">
                     <!-- Header Search Start -->
                     <div class="header-search-area mr-xl-4 mr-0">
-
-                        <!-- Header Login Start -->
                         <div class="header-search">
-                            <a href="javascript:void(0)" class="header-search-toggle"><i
-                                    class="pe-7s-search pe-2x pe-va"></i></a>
+                            <a href="javascript:void(0)" class="header-search-toggle" id="searchToggle">
+                                <i class="pe-7s-search pe-2x pe-va"></i>
+                            </a>
                         </div>
-                        <!-- Header Login End -->
                     </div>
                     <!-- Header Search End -->
 
@@ -150,3 +148,178 @@
     </div>
 </div>
 <!-- Header Section End -->
+
+<!-- Search Overlay Start -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-close" id="searchClose"></div>
+    <div class="search-overlay-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('product.list') }}" method="GET" class="search-form">
+                        <div class="search-input-group">
+                            <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." value="{{ request('search') }}">
+                            <button type="submit">
+                                <i class="pe-7s-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Overlay End -->
+
+<style>
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.search-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-input-group input {
+    width: 100%;
+    height: 60px;
+    padding: 0 60px 0 20px;
+    border: none;
+    border-radius: 30px;
+    background: #fff;
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-input-group button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    background: #ff6b6b;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-input-group button:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+.search-overlay-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.search-overlay-close:before,
+.search-overlay-close:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+}
+
+.search-overlay-close:before {
+    transform: rotate(45deg);
+}
+
+.search-overlay-close:after {
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+    .search-overlay-content {
+        padding: 0 15px;
+    }
+    
+    .search-input-group input {
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .search-input-group button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchToggle = document.getElementById('searchToggle');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchClose = document.getElementById('searchClose');
+    const searchInput = document.querySelector('.search-input-group input');
+
+    // Only show search on home page
+    if (window.location.pathname === '/') {
+        searchToggle.style.display = 'block';
+    } else {
+        searchToggle.style.display = 'none';
+    }
+
+    searchToggle.addEventListener('click', function() {
+        searchOverlay.classList.add('active');
+        setTimeout(() => {
+            searchInput.focus();
+        }, 300);
+    });
+
+    searchClose.addEventListener('click', function() {
+        searchOverlay.classList.remove('active');
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+            searchOverlay.classList.remove('active');
+        }
+    });
+
+    // Close on click outside
+    searchOverlay.addEventListener('click', function(e) {
+        if (e.target === searchOverlay) {
+            searchOverlay.classList.remove('active');
+        }
+    });
+});
+</script>
