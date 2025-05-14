@@ -8,25 +8,40 @@ class ProductController extends Controller
 {
     public function List(Request $request)
     {
-        $perPage = $request->input('per_page', 12);
-        $perPageOptions = [9, 12, 18, 24];
+        $sort = $request->input('sort', 'default');
 
-        $products = Product::with('category')
-            ->orderBy('created_at', 'desc')
-            ->take($perPage)
+        $query = Product::with('category')
             ->when($request->id_category, function ($query) use ($request) {
                 return $query->where('id_category', $request->id_category);
             })
-            ->get()
+            ->select('*')
+            ->selectRaw('CASE WHEN discount > 0 THEN price * (1 - discount/100) ELSE price END as discounted_price');
+
+        // Xử lý sắp xếp
+        switch ($sort) {
+            case 'price_low':
+                $query->orderBy('discounted_price', 'asc');
+                break;
+            case 'price_high':
+                $query->orderBy('discounted_price', 'desc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $products = $query->get()
             ->map(fn($product) => $product->formatProductForDisplay());
-        // Tính tổng số sản phẩm có thể tải
-        $totalProducts = Product::count();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'products' => $products
+            ]);
+        }
+
         return view('front.product.index', [
             'title' => 'Shop Products',
-            'products' => $products,
-            'perPageOptions' => $perPageOptions,
-            'currentPerPage' => $perPage,
-            'totalProducts' => $totalProducts,
+            'products' => $products
         ]);
     }
     public function loadProducts(Request $request)
@@ -39,7 +54,7 @@ class ProductController extends Controller
         $query = Product::with('category');
 
         // Xử lý filter theo danh mục
-        if ($filter !== 'all') {
+        if ($filter !== 'all' && strpos($filter, 'category_') === 0) {
             $categoryId = str_replace('category_', '', $filter);
             $query->where('id_category', $categoryId);
         }
@@ -56,12 +71,19 @@ class ProductController extends Controller
                 $query->orderBy('created_at', 'desc');
                 break;
         }
-        // Lấy tổng số sản phẩm
+
+        // Lấy tổng số sản phẩm sau khi áp dụng filter
         $total = $query->count();
 
         $products = $query->offset($offset)->limit($limit)->get();
-        $products = $products->map(fn ($product)=> $product->formatProductForDisplay());
-        return response()->json(['products' => $products, 'total' => $total]);
+        $products = $products->map(fn($product) => $product->formatProductForDisplay());
+
+        return response()->json([
+            'products' => $products,
+            'total' => $total,
+            'offset' => $offset,
+            'limit' => $limit
+        ]);
     }
 
     public function detail($id)
