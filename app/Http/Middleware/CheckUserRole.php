@@ -20,11 +20,6 @@ class CheckUserRole
         if ($role === 'admin' && $user->is_admin !== 999) {
             return redirect()->route('index')->with('error', 'Bạn không có quyền truy cập trang này.');
         }
-        
-        // Check if user is regular user (role 2)
-        if ($role === 'user' && $user->is_admin !== 2) {
-            return redirect()->route('product.list')->with('error', 'Bạn không có quyền truy cập trang này.');
-        }
 
         return $next($request);
     }
